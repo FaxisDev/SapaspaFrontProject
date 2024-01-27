@@ -1,0 +1,10 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.barra-menu {
+    box-shadow: none;
+    background-color: #8CB3C1;
+    color: #38474D;
+}
