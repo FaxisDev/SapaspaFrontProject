@@ -12,3 +12,18 @@ body {
 
     
 }
+
+.logo-texto {
+    margin-left: 4px;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: inherit;
+
+    font-family: cursive;
+    letter-spacing: 1px;
+    text-decoration: none;
+}

@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 import Image from 'next/image';
+import { Typography } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,8 +34,14 @@ export default function RootLayout({children}) {
             src="/img/logo.svg"
             width={48}
             height={48}
-            alt="Picture of the author"
+            alt="Sapaspa"
           />
+          <Typography
+            className='logo-texto'
+            
+          >
+            Sapaspa
+          </Typography>
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
