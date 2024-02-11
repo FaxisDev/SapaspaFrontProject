@@ -1,29 +1,24 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #dae2eb;
+    margin: 0;
+    padding: 0;
+
 }
 
 
 .barra-menu {
     box-shadow: none;
-    background-color: #DB143F;
+    background-color: #6bb2bc;
     color: #38474D;
-   
-    
-
     
 }
 
-.logo-texto {
-    margin-left: 4px;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 1.6;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: inherit;
 
-    font-family: cursive;
-    letter-spacing: 1px;
-    text-decoration: none;
+.barra-footer {
+    box-shadow: none;
+    background-color: #465f7d;
+    color: #ffffff;
+    padding: 5px;
+    
 }
