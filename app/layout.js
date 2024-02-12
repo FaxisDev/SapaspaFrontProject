@@ -1,7 +1,6 @@
-import { Inter } from 'next/font/google'
 import './estilos-miztli.css'
 
-import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -22,7 +21,7 @@ import HouseRoundedIcon from '@mui/icons-material/HouseRounded';
 
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
-import Footer from './components/layout/footer';
+import Footer from './components/layout/Footer';
 
 export const metadata = {
     title: 'Sapaspa',
