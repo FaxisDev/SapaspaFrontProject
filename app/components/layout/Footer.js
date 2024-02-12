@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <div className="barra-footer">
-            <Grid container spacing={2}>
+            <Grid container>
                 
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <Box>
@@ -58,7 +58,7 @@ export default function Footer() {
                         width={128}
                         height={128}
                         alt="Sapaspa"
-                        sx={{ flexGrow: 1 }}
+                 
                     />
 
                 </Grid>
