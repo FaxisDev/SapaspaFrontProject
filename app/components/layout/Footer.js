@@ -14,20 +14,20 @@ export default function Footer() {
 
                     <Box>
 
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h6" component="div">
                             Contacto 
                         </Typography>
                         <Typography variant="body1">
                             Correo Electronico
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="caption">
                             sapaspa@gmail.com
                             
                         </Typography>
                         <Typography variant="body1">
                             Redes Sociales
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="caption">
                             /Sapaspa
                         </Typography>
 
@@ -43,19 +43,19 @@ export default function Footer() {
 
                     <Box>
 
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h6" component="div">
                             Telefonos
                         </Typography>
                         <Typography variant="body1">
                             Area Metropolitana
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="caption">
                             +52 5544 3323
                         </Typography>
                         <Typography variant="body1">
                             Cdmx
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="caption">
                             +52 01 5345 3323
                         </Typography>
 
