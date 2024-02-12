@@ -27,6 +27,7 @@ export default function Page() {
 
                         <CardContent>
 
+                       {/*  El siguiente componente es la fecha del dia de hoy */}
                         <Chip icon={<AccessTimeRoundedIcon />} label={fechaFormateada} />
          
 
