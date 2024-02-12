@@ -19,8 +19,7 @@ import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import HouseRoundedIcon from '@mui/icons-material/HouseRounded';
 
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
+
 import Footer from './components/layout/Footer';
 
 export const metadata = {
@@ -30,14 +29,6 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
-
-
-
-    // Obtener la fecha actual
-    const fechaActual = new Date();
-
-    // Formatear la fecha en español
-    const fechaFormateada = format(fechaActual, "dd 'de' MMMM 'de' yyyy", { locale: es });
 
     return (
 
@@ -67,9 +58,6 @@ export default function RootLayout({ children }) {
                         <Toolbar id="back-to-top-anchor" />
                         <Container>
 
-                            <div>
-                                {fechaFormateada}
-                            </div>
                             <Box sx={{ my: 2 }}>
 
                                 {children}
