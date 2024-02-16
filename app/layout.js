@@ -41,9 +41,9 @@ export default function RootLayout({ children }) {
                         <AppBar className='barra-menu'>
                             <Toolbar>
                                 <Image
-                                    src="/img/logo.svg"
-                                    width={48}
-                                    height={48}
+                                    src="/img/logo_complete.svg"
+                                    width={144}
+                                    height={64}
                                     alt="Sapaspa"
                                     sx={{ flexGrow: 1 }}
                                 />
