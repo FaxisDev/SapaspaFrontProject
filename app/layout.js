@@ -1,18 +1,17 @@
 import './estilos-miztli.css'
-
+import 'animate.css';
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 
 import Image from 'next/image';
-import { Button } from '@mui/material';
+import { Button, Hidden } from '@mui/material';
 
 
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
@@ -49,23 +48,18 @@ export default function RootLayout({ children }) {
                                 />
                                 <Box sx={{ flexGrow: 1 }}>
                                 </Box>
-                                <Button color="inherit"><HouseRoundedIcon /> Principal</Button>
-                                <Button color="inherit"><ReceiptIcon /> Pagar Servicios</Button>
-                                <Button color="inherit"><ContactSupportIcon /> Preguntas Frencuentes</Button>
+                                <Button color="inherit"><HouseRoundedIcon /><Hidden smDown> Principal </Hidden></Button>
+                                <Button color="inherit"><ReceiptIcon /> <Hidden smDown>Pagar Servicios</Hidden></Button>
+                                <Button color="inherit"><ContactSupportIcon /> <Hidden smDown>Preguntas Frencuentes</Hidden></Button>
                             </Toolbar>
                         </AppBar>
 
                         <Toolbar id="back-to-top-anchor" />
-                        <Container>
-
-                            <Box sx={{ my: 2 }}>
-
-                                {children}
-
-                            </Box>
 
 
-                        </Container>
+                        <Box sx={{ my: 2 }}>
+                            {children}
+                        </Box>
 
                         <Footer />
 
