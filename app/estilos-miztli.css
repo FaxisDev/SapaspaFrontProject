@@ -31,3 +31,15 @@ body {
 .boton-menu {
     color: #2D4A4E;
 }
+
+.card-blue {
+     /* Fondo con gradiente lineal */
+  background: linear-gradient(to bottom,  #6dd5fa, #47a6e5);
+  /* Fallback para navegadores que no admiten gradientes */
+  background-color: #47a6e5;
+}
+
+.card-green{
+    background: linear-gradient(to bottom, #74ffcc, #178b5c);
+    background-color: #178b5c;
+}

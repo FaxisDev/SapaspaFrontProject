@@ -12,6 +12,7 @@ import WaterDropIcon from '@mui/icons-material/WaterDrop';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import TarifaComponent from './components/principal/TarifaComponent';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -34,7 +35,7 @@ export default function Page() {
 
         <>
             <Container>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} mb={2}>
                     <Grid xs={12}>
 
 
@@ -125,39 +126,30 @@ export default function Page() {
                         </Swiper>
 
                     </Grid>
-                    <Grid xs={12} md={7} >
+                    <Grid xs={12} md={6} >
 
-                        <Card padding={2}>
+                        <Card padding={2} className="card-blue">
                             <CardContent>
-                                {/*  El siguiente componente es la fecha del dia de hoy */}
-                                <Chip icon={<AccessTimeRoundedIcon />} label={fechaFormateada} />
-
-                                <Typography variant="h5"  >
-                                    ¡Bienvenido/a al portal de Agua Potable y Alcantarillado de San Pablo Atlalzalpan!
+                            <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
+                            Tarifa Justa y Transparente para Todos
                                 </Typography>
-                                <Typography variant="body1" color="text.secondary">
-                                    Estamos aquí para hacer que el proceso de pago de tu servicio sea lo más fácil y seguro posible.
+                                <Divider />
+                                <Typography variant="body1" color="text.secondary" padding={2}>
+                                    En nuestro compromiso de brindar un servicio equitativo y transparente, presentamos nuestras tarifas de agua, las cuales son aplicables para todos nuestros usuarios. Es importante destacar que estas tarifas están sujetas a posibles ajustes anuales, en línea con las regulaciones y condiciones del mercado.
                                 </Typography>
                             </CardContent>
 
-                            <CardActions>
-                                <Button variant="outlined" to='/buscar'>Pagar recibo de agua</Button>
-                            </CardActions>
+                      
                         </Card>
                     </Grid>
-                    <Grid xs={12} md={5}>
+                    <Grid xs={12} md={6}>
 
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="350"
-                                    image="/img/portal_1.jpg"
-                                    alt="Agua Pura"
-                                    className="animate__animated animate__fadeIn  animate__delay-1s"
-                                />
+                        <Card className="card-green">
+                        <CardContent> 
 
-                            </CardActionArea>
+  
+                                <TarifaComponent />
+                        </CardContent>
                         </Card>
 
 
