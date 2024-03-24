@@ -22,6 +22,16 @@ body {
     padding: 5px;
     
 }
+.footer-title-list {
+    background: none;
+    font-size: medium;
+}
+.footer-icon-color {
+    color: #465f7d;
+}
+.footer-avatar-color {
+    background-color: #ffffff;
+}
 
 .jumbotron {
     background: #87A2C0;
