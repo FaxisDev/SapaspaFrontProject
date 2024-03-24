@@ -1,9 +1,8 @@
 
 'use client'
-import { Alert, Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, Container, Divider, Typography } from "@mui/material";
+import { Alert, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, Container, Divider, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
-import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';

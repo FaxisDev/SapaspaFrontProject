@@ -17,7 +17,7 @@ body {
 
 .barra-footer {
     box-shadow: none;
-    background-color: #465f7d;
+    background: url('/img/texturas/prismaticos.png') repeat #465f7d;
     color: #ffffff;
     padding: 5px;
     
@@ -42,4 +42,10 @@ body {
 .card-green{
     background: linear-gradient(to bottom, #74ffcc, #178b5c);
     background-color: #178b5c;
+}
+
+/* Botones Personalizados */
+.boton-yellow {
+
+    background-color: #f5c224;
 }
