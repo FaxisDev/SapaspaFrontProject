@@ -62,8 +62,8 @@ export default function Page() {
                                         title="sdsd"
 
                                         component="img"
-                                        height="350"
-                                        image="/img/visual/ejemplo_1.jpg"
+                                        height="450"
+                                        image="/img/visual/ejemplo_6.jpg"
                                         alt="Agua Pura"
                                         className="animate__animated animate__fadeIn  animate__delay-1s"
                                     />
@@ -87,39 +87,59 @@ export default function Page() {
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="title" data-swiper-parallax="-300">
-                                    Slide 2
+                                    
+                                
+                                
+                                    <CardMedia
+                                        title="sdsd"
+
+                                        component="img"
+                                        height="450"
+                                        image="/img/visual/ejemplo_8.jpg"
+                                        alt="Agua Pura"
+                                        className="animate__animated animate__fadeIn  animate__delay-1s"
+                                    />
+
+                                    <CardContent>
+                                     
+
+                                    </CardContent>
                                 </div>
-                                <div className="subtitle" data-swiper-parallax="-200">
-                                    Subtitle
+                                <div className="" data-swiper-parallax="-200">
+                                    
                                 </div>
                                 <div className="text" data-swiper-parallax="-100">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                        
                                     </p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="title" data-swiper-parallax="-300">
-                                    Slide 3
+
+
+                                
+                                    <CardMedia
+                                        title="sdsd"
+
+                                        component="img"
+                                        height="450"
+                                        image="/img/visual/ejemplo_11.jpg"
+                                        alt=""
+                                        className="animate__animated animate__fadeIn  animate__delay-1s"
+                                    />
+
+                                    <CardContent>
+                                    
+
+                                    </CardContent>
                                 </div>
-                                <div className="subtitle" data-swiper-parallax="-200">
-                                    Subtitle
+                                <div className="" data-swiper-parallax="-200">
+                                    
                                 </div>
                                 <div className="text" data-swiper-parallax="-100">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                        
                                     </p>
                                 </div>
                             </SwiperSlide>
