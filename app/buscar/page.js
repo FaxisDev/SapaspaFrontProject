@@ -1,6 +1,8 @@
 'use client'
 import { Alert, Avatar, Button, Card, CardContent, CardHeader, Container, FormHelperText, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Stack, TextField, Typography } from "@mui/material";
-import SendIcon from '@mui/icons-material/Send';
+import useFormData from '../hooks/useFormData';
+import useFetch from '../hooks/useFetch';
+
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import InfoIcon from '@mui/icons-material/Info';
@@ -8,31 +10,26 @@ import ArticleIcon from '@mui/icons-material/Article';
 import SearchIcon from '@mui/icons-material/Search';
 
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
-
-
-
-import { useState } from "react";
 import Image from "next/image";
 
+
 export default function Page() {
-    const [formularioData, setFormularioData] = useState({
+    const [formularioData, setFormularioData, limpiarFormularioData] = useFormData({
         folio_unico: '',
         curp: '',
         numero_telefonico: '',
     });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormularioData({
-            ...formularioData,
-            [name]: value,
-        });
-    };
-
-    const handleSubmit = (e) => {
+    // Utilizamos el hook useFetch para obtener datos de una API utilizando el método GET
+    
+    const { data, loading, error, urlx } = useFetch('api/contribuyentes', { 'method': 'GET' }, formularioData);
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Aquí puedes realizar acciones con los datos del formulario
         console.log(formularioData);
+        console.log("Consumo de api: prueba: " + JSON.stringify(data));
+        console.log("error"+error)
     };
     return (
 
@@ -81,7 +78,7 @@ export default function Page() {
                                                 label="Folio Único"
                                                 variant="outlined"
                                                 value={formularioData.folio_unico}
-                                                onChange={handleChange}
+                                                onChange={setFormularioData}
                                                 InputProps={{
                                                     endAdornment: <ArticleIcon />,
                                                 }}
@@ -101,7 +98,7 @@ export default function Page() {
                                                 label="CURP"
                                                 variant="outlined"
                                                 value={formularioData.curp}
-                                                onChange={handleChange}
+                                                onChange={setFormularioData}
                                             />
                                             <FormHelperText id="curp">
                                                 Puedes encontrarlo en tu acta de nacimiento o consultar en línea a través del sitio web oficial del gobierno mexicano.
@@ -117,7 +114,7 @@ export default function Page() {
                                                 label="Número Telefónico"
                                                 variant="outlined"
                                                 value={formularioData.numero_telefonico}
-                                                onChange={handleChange}
+                                                onChange={setFormularioData}
                                             />
                                             <FormHelperText id="numero_telefonico">
                                                 Es el número telefónico o de celular que proporcionaste al registrarte en Sapaspa.
@@ -126,7 +123,7 @@ export default function Page() {
                                         <Grid item xs={12}>
                                             <Stack direction="row" justifyContent="flex-end"
                                                 alignItems="center" spacing={1}>
-                                                <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="contained" color="inherit" className="boton-yellow" >
+                                                <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="contained" color="inherit" className="boton-yellow" onClick={limpiarFormularioData} >
                                                     Limpiar
                                                 </Button>
 
