@@ -63,7 +63,7 @@ const useFetch = (url, options = {}, jsonData = null) => {
     }, [jsonData]); // Dependencia que activa el efecto cada vez que cambia jsonData
 
     // Devolver los datos, el estado de carga y los errores para que el componente los pueda utilizar
-    return { data, loading, error};
+    return { data, loading, error };
 };
 
 export default useFetch;

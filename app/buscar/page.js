@@ -1,7 +1,6 @@
 'use client'
-import { Alert, Avatar, Button, Card, CardContent, CardHeader, Container, FormHelperText, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Stack, TextField, Typography } from "@mui/material";
+import { Alert, Avatar, Button, Card, CardContent, CardHeader, CircularProgress, Container, FormHelperText, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Snackbar, Stack, TextField, Typography } from "@mui/material";
 import useFormData from '../hooks/useFormData';
-import useFetch from '../hooks/useFetch';
 
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
@@ -11,6 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import Image from "next/image";
+import { useState } from "react";
 
 
 export default function Page() {
@@ -20,20 +20,94 @@ export default function Page() {
         numero_telefonico: '',
     });
 
-    // Utilizamos el hook useFetch para obtener datos de una API utilizando el método GET
-    
-    const { data, loading, error, urlx } = useFetch('api/contribuyentes', { 'method': 'GET' }, formularioData);
-    
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    const [data, setData] = useState(null); // Almacena los datos obtenidos de la solicitud
+    const [loading, setLoading] = useState(false); // Indica si la solicitud está en curso
+    const [open, setOpen] = useState(false);
+
+    // Función para realizar la solicitud
+    const fetchData = async (url) => {
+        // Establecer loading en true para indicar que la solicitud está en curso
+        setLoading(true);
+
+        // Construir la URL completa para la solicitud
+        let fetchUrl = `http://127.0.0.1:8000/${url}`;
+        // Copiar las opciones de solicitud para evitar mutar el objeto original
+        let fetchOptions = { 'method': 'GET' };
+
+        const queryString = new URLSearchParams(formularioData).toString();
+        fetchUrl += `?${queryString}`;
+
+        // Realizar la solicitud utilizando fetch API
+        fetch(fetchUrl, fetchOptions)
+            .then(response => {
+                // Verificar si la respuesta es exitosa
+                if (!response.ok) {
+                    // Si la respuesta no es exitosa, lanzar un error
+                    throw new Error('La respuesta de la red no fue correcta');
+                }
+                // Convertir la respuesta a formato JSON y establecer los datos obtenidos en el estado
+                return response.json();
+            })
+            .then(responseData => {
+                setData(responseData);
+                // Establecer loading en false para indicar que la solicitud ha terminado
+                setLoading(false);
+
+                if (data.length === 0) {
+                    setOpen(true);
+                } else {
+                    setOpen(false)
+                }
+
+                console.log("Valor de open: " + open)
+                console.log("Valor de data: " + data + " Valor de lenghth" + data.length)
+            })
+            .catch(error => {
+                // Establecer loading en false para indicar que la solicitud ha terminado
+                console.log("Error: " + error)
+                setLoading(false);
+            });
+
+
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Aquí puedes realizar acciones con los datos del formulario
-        console.log(formularioData);
-        console.log("Consumo de api: prueba: " + JSON.stringify(data));
-        console.log("error"+error)
+
+        await fetchData('api/contribuyentes');
+
     };
     return (
 
         <>
+
+            <Snackbar
+                open={open}
+                autoHideDuration={5000}
+                onClose={handleClose}
+
+                direction="up"
+
+            >
+                <Alert
+                    onClose={handleClose}
+                    severity="error"
+                    variant="filled"
+                    sx={{ width: '100%' }}
+                >
+                    Error, registros no encontrados
+
+                </Alert>
+            </Snackbar>
+            
             <Container>
                 <Grid container spacing={2} >
                     <Grid container justifyContent="center"
@@ -127,9 +201,13 @@ export default function Page() {
                                                     Limpiar
                                                 </Button>
 
-                                                <Button endIcon={<SearchIcon />} size={"medium"} variant="contained" color="primary" type="submit">
-                                                    Buscar
+
+                                                <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="contained" color="primary" type="submit" disabled={loading}>
+                                                    {loading ? 'Buscando...' : 'Buscar'}
                                                 </Button>
+
+
+
                                             </Stack>
                                         </Grid>
                                     </Grid>
