@@ -11,9 +11,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 
 export default function Page() {
+    const router = useRouter();
+
+
     const [formularioData, setFormularioData, limpiarFormularioData] = useFormData({
         folio_unico: '',
         curp: '',
@@ -61,18 +65,23 @@ export default function Page() {
                 // Establecer loading en false para indicar que la solicitud ha terminado
                 setLoading(false);
 
-                if (data.length === 0) {
+                // Mover la lógica que depende de data.length aquí
+                if (responseData.length === 0) {
                     setOpen(true);
                 } else {
-                    setOpen(false)
+                    setOpen(false);
+                    router.push({
+                        pathname: '/buscar/lista',
+                        query: { data: responseData }
+                    });
                 }
 
-                console.log("Valor de open: " + open)
-                console.log("Valor de data: " + data + " Valor de lenghth" + data.length)
+                console.log("Valor de open: " + open);
+                console.log("Valor de data: " + responseData + " Valor de lenghth" + responseData.length);
             })
             .catch(error => {
-                // Establecer loading en false para indicar que la solicitud ha terminado
-                console.log("Error: " + error)
+                // Manejo de errores
+                console.error('Error al obtener los datos:', error);
                 setLoading(false);
             });
 
@@ -107,7 +116,7 @@ export default function Page() {
 
                 </Alert>
             </Snackbar>
-            
+
             <Container>
                 <Grid container spacing={2} >
                     <Grid container justifyContent="center"
