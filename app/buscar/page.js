@@ -10,13 +10,14 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from 'next/navigation';
 
+import { ContribuyenteContext } from '../context/ContribuyenteContext';
 
 export default function Page() {
     const router = useRouter();
-
+    const { guardarInfoContribuyente } = useContext(ContribuyenteContext);
 
     const [formularioData, setFormularioData, limpiarFormularioData] = useFormData({
         folio_unico: '',
@@ -32,7 +33,6 @@ export default function Page() {
         setOpen(false);
     };
 
-    const [data, setData] = useState(null); // Almacena los datos obtenidos de la solicitud
     const [loading, setLoading] = useState(false); // Indica si la solicitud está en curso
     const [open, setOpen] = useState(false);
 
@@ -61,7 +61,6 @@ export default function Page() {
                 return response.json();
             })
             .then(responseData => {
-                setData(responseData);
                 // Establecer loading en false para indicar que la solicitud ha terminado
                 setLoading(false);
 
@@ -70,14 +69,12 @@ export default function Page() {
                     setOpen(true);
                 } else {
                     setOpen(false);
-                    router.push({
-                        pathname: '/buscar/lista',
-                        query: { data: responseData }
-                    });
-                }
+                    guardarInfoContribuyente(responseData);
+                    router.push('/buscar/contribuyentes');
 
-                console.log("Valor de open: " + open);
-                console.log("Valor de data: " + responseData + " Valor de lenghth" + responseData.length);
+                }
+                console.log(responseData)
+
             })
             .catch(error => {
                 // Manejo de errores

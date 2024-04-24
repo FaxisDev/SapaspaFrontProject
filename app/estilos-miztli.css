@@ -42,18 +42,26 @@ body {
     color: #2D4A4E;
 }
 
+/* Estilo para una tarjeta con fondo azul */
 .card-blue {
-     /* Fondo con gradiente lineal */
-  background: linear-gradient(to bottom,  #6dd5fa, #47a6e5);
-  /* Fallback para navegadores que no admiten gradientes */
-  background-color: #47a6e5;
-}
-
-.card-green{
-    background: linear-gradient(to bottom, #74ffcc, #178b5c);
-    background-color: #178b5c;
-}
-
+    /* Fondo con gradiente lineal a 175deg grados */
+    background: linear-gradient(175deg, #6dd5fa, #47a6e5);
+    /* Fallback para navegadores que no admiten gradientes */
+    background-color: #47a6e5; /* Color de fondo de respaldo */
+  }
+  
+  /* Estilo para una tarjeta con fondo verde */
+  .card-green{
+    background: linear-gradient(175deg, #74ffcc, #178b5c);
+    background-color: #178b5c; /* Color de fondo de respaldo */
+  }
+  
+  /* Estilo para una tarjeta con fondo rojo */
+  .card-red{
+    background: linear-gradient(175deg, #ff7474, #8b1753);
+    background-color: #8b1753; /* Color de fondo de respaldo */
+  }
+  
 /* Botones Personalizados */
 .boton-yellow {
 

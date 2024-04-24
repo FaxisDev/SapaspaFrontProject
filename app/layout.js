@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { ThemeProvider } from '@mui/material/styles';
+import { ContribuyenteProvider } from './context/ContribuyenteContext';
 import theme from './theme';
 
 import Image from 'next/image';
@@ -35,49 +36,54 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body>
 
-                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-                    <ThemeProvider theme={theme}>
-                        <CssBaseline />
-                        <AppBar className='barra-menu'>
-                            <Toolbar>
-                                <Image
-                                    src="/img/logo_complete.svg"
-                                    width={144}
-                                    height={64}
-                                    alt="Sapaspa"
-                                    sx={{ flexGrow: 1 }}
-                                />
-                                <Box sx={{ flexGrow: 1 }}>
-                                </Box>
-                                <Link href="/" passHref>
+                <ContribuyenteProvider >
 
-                                    <Button contained="true" className='boton-menu'><HouseRoundedIcon /><Hidden smDown>Principal</Hidden></Button>
-                                </Link>
+                    <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+                        <ThemeProvider theme={theme}>
+                            <CssBaseline />
+                            <AppBar className='barra-menu'>
+                                <Toolbar>
+                                    <Image
+                                        src="/img/logo_complete.svg"
+                                        width={144}
+                                        height={64}
+                                        alt="Sapaspa"
+                                        sx={{ flexGrow: 1 }}
+                                    />
+                                    <Box sx={{ flexGrow: 1 }}>
+                                    </Box>
+                                    <Link href="/" passHref>
 
-                                <Link href="/buscar" passHref>
+                                        <Button contained="true" className='boton-menu'><HouseRoundedIcon /><Hidden smDown>Principal</Hidden></Button>
+                                    </Link>
 
-                                    <Button contained="true" className='boton-menu'><ReceiptIcon /><Hidden smDown>Pagar Servicios</Hidden></Button>
-                                </Link>
-                                <Link href="/preguntas-frecuentes" passHref>
+                                    <Link href="/buscar" passHref>
 
-                                    <Button contained="true" className='boton-menu'><ContactSupportIcon /> <Hidden smDown>Preguntas Frencuentes</Hidden></Button>
+                                        <Button contained="true" className='boton-menu'><ReceiptIcon /><Hidden smDown>Pagar Servicios</Hidden></Button>
+                                    </Link>
+                                    <Link href="/preguntas-frecuentes" passHref>
 
-                                </Link>
-                            </Toolbar>
-                        </AppBar>
+                                        <Button contained="true" className='boton-menu'><ContactSupportIcon /> <Hidden smDown>Preguntas Frencuentes</Hidden></Button>
 
-                        <Toolbar id="back-to-top-anchor" />
+                                    </Link>
+                                </Toolbar>
+                            </AppBar>
+
+                            <Toolbar id="back-to-top-anchor" />
 
 
-                        <Box sx={{ my: 2 }}>
-                            {children}
-                        </Box>
+                            <Box sx={{ my: 2 }}>
+                                {children}
+                            </Box>
 
-                        <Footer />
+                            <Footer />
 
-                    </ThemeProvider>
+                        </ThemeProvider>
 
-                </AppRouterCacheProvider>
+                    </AppRouterCacheProvider>
+
+                </ContribuyenteProvider>
+
             </body>
 
         </html>
