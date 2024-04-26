@@ -1,5 +1,5 @@
 'use client'
-import { Alert, Avatar, Button, Card, CardContent, CardHeader, CircularProgress, Container, FormHelperText, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Snackbar, Stack, TextField, Typography } from "@mui/material";
+import { Alert, AlertTitle, Avatar, Box, Button, Card, CardContent, CardHeader, CircularProgress, Container, Divider, FormHelperText, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Snackbar, Stack, Tab, Tabs, TextField, Typography } from "@mui/material";
 import useFormData from '../hooks/useFormData';
 
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
@@ -24,6 +24,13 @@ export default function Page() {
         curp: '',
         numero_telefonico: '',
     });
+
+    const [seleccionarTab, setSeleccionarTab] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setSeleccionarTab(newValue);
+    };
+
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -127,105 +134,140 @@ export default function Page() {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <Card padding={2} className="card-blue">
+                        <Card padding={1}>
                             <CardContent>
-                                <Typography variant="body1" color="text.secondary">
+
+                                <Alert severity="info">
+                                    <AlertTitle>¡Muy importante!</AlertTitle>
                                     Este formulario te ayuda a encontrar la información del titular para pagar el servicio de agua. Puedes buscar utilizando el número de folio único, el CURP o el número telefónico del titular. Facilita tu pago y gestiona tus cuentas de forma rápida y sencilla.
-                                </Typography>
+                                </Alert>
                             </CardContent>
                         </Card>
                     </Grid>
                 </Grid>
                 <Grid container spacing={2} mt={2}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={7}>
 
                         <Card>
 
-                            <CardHeader title="Formulario" titleTypographyProps={{ align: 'center' }} />
+                            <Box sx={{ bgcolor: 'background.paper' }}>
+                                <Tabs value={seleccionarTab} onChange={handleChange} centered variant="fullWidth">
+                                    <Tab label="Metodo 1" />
+                                    <Tab label="Metodo 2" />
+                                </Tabs>
+                                <CardHeader title="Formulario" titleTypographyProps={{ align: 'center' }} />
 
-                            <Alert severity="info">Para encontrar tus datos, solo necesitas ingresar <u><b>uno</b></u>  de los 3 campos.</Alert>
-
-                            <CardContent>
-
-
-                                <form onSubmit={handleSubmit}>
-                                    <Grid container spacing={3}>
-                                        <Grid item xs={12}>
-                                            <TextField
-                                                fullWidth
-
-                                                name="folio_unico"
-                                                label="Folio Único"
-                                                variant="outlined"
-                                                value={formularioData.folio_unico}
-                                                onChange={setFormularioData}
-                                                InputProps={{
-                                                    endAdornment: <ArticleIcon />,
-                                                }}
-                                            />
-                                            <FormHelperText id="folio_unico">
-                                                Por lo general, se encuentra en la parte superior de tu recibo de agua más reciente.
-                                            </FormHelperText>
-
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <TextField
-                                                fullWidth
-                                                InputProps={{
-                                                    endAdornment: <PermIdentityIcon />,
-                                                }}
-                                                name="curp"
-                                                label="CURP"
-                                                variant="outlined"
-                                                value={formularioData.curp}
-                                                onChange={setFormularioData}
-                                            />
-                                            <FormHelperText id="curp">
-                                                Puedes encontrarlo en tu acta de nacimiento o consultar en línea a través del sitio web oficial del gobierno mexicano.
-                                            </FormHelperText>
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <TextField
-                                                fullWidth
-                                                InputProps={{
-                                                    endAdornment: <SmartphoneIcon />,
-                                                }}
-                                                name="numero_telefonico"
-                                                label="Número Telefónico"
-                                                variant="outlined"
-                                                value={formularioData.numero_telefonico}
-                                                onChange={setFormularioData}
-                                            />
-                                            <FormHelperText id="numero_telefonico">
-                                                Es el número telefónico o de celular que proporcionaste al registrarte en Sapaspa.
-                                            </FormHelperText>
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <Stack direction="row" justifyContent="flex-end"
-                                                alignItems="center" spacing={1}>
-                                                <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="contained" color="inherit" className="boton-yellow" onClick={limpiarFormularioData} >
-                                                    Limpiar
-                                                </Button>
+                                <Alert severity="success">Todos los campos son obligatorios.</Alert>
 
 
-                                                <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="contained" color="primary" type="submit" disabled={loading}>
-                                                    {loading ? 'Buscando...' : 'Buscar'}
-                                                </Button>
+                                <TabPanel value={seleccionarTab} index={0}>
+                                    <CardContent>
+                                        <form onSubmit={handleSubmit}>
+                                            <Grid container spacing={2}>
+                                                <Grid item xs={12}>
+                                                    <TextField
+                                                        fullWidth
+
+                                                        name="folio_unico"
+                                                        label="Folio Único"
+                                                        variant="outlined"
+                                                        value={formularioData.folio_unico}
+                                                        onChange={setFormularioData}
+                                                        InputProps={{
+                                                            endAdornment: <ArticleIcon />,
+                                                        }}
+                                                    />
+                                                    <FormHelperText id="folio_unico">
+                                                        Por lo general, se encuentra en la parte superior de tu recibo de agua más reciente.
+                                                    </FormHelperText>
+
+                                                </Grid>
+
+                                                <Grid item xs={12}>
+                                                    <TextField
+                                                        fullWidth
+                                                        InputProps={{
+                                                            endAdornment: <SmartphoneIcon />,
+                                                        }}
+                                                        name="numero_telefonico"
+                                                        label="Número Telefónico"
+                                                        variant="outlined"
+                                                        value={formularioData.numero_telefonico}
+                                                        onChange={setFormularioData}
+                                                    />
+                                                    <FormHelperText id="numero_telefonico">
+                                                        Es el número telefónico o de celular que proporcionaste al registrarte en Sapaspa.
+                                                    </FormHelperText>
+
+                                                </Grid>
+                                                <Grid item xs={12}>
+                                                    <Stack direction="row" justifyContent="flex-end"
+                                                        alignItems="center" spacing={1}>
+                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="contained" color="inherit" className="boton-yellow" onClick={limpiarFormularioData} >
+                                                            Limpiar
+                                                        </Button>
+
+
+                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="contained" color="primary" type="submit" disabled={loading}>
+                                                            {loading ? 'Buscando...' : 'Buscar'}
+                                                        </Button>
 
 
 
-                                            </Stack>
-                                        </Grid>
-                                    </Grid>
-                                </form>
-                            </CardContent>
+                                                    </Stack>
+                                                </Grid>
+                                            </Grid>
+                                        </form>
+                                    </CardContent>
+                                </TabPanel>
+                                <TabPanel value={seleccionarTab} index={1}>
+                                    <CardContent>
+                                        <form onSubmit={handleSubmit}>
+                                            <Grid container spacing={2}>
+
+                                                <Grid item xs={12}>
+                                                    <TextField
+                                                        fullWidth
+                                                        InputProps={{
+                                                            endAdornment: <PermIdentityIcon />,
+                                                        }}
+                                                        name="curp"
+                                                        label="CURP"
+                                                        variant="outlined"
+                                                        value={formularioData.curp}
+                                                        onChange={setFormularioData}
+                                                    />
+                                                    <FormHelperText id="curp">
+                                                        Puedes encontrarlo en tu acta de nacimiento o consultar en línea a través del sitio web oficial del gobierno mexicano.
+                                                    </FormHelperText>
+                                                </Grid>
+
+                                                <Grid item xs={12}>
+                                                    <Stack direction="row" justifyContent="flex-end"
+                                                        alignItems="center" spacing={1}>
+                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="contained" color="inherit" className="boton-yellow" onClick={limpiarFormularioData} >
+                                                            Limpiar
+                                                        </Button>
+
+
+                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="contained" color="primary" type="submit" disabled={loading}>
+                                                            {loading ? 'Buscando...' : 'Buscar'}
+                                                        </Button>
 
 
 
+                                                    </Stack>
+                                                </Grid>
+                                            </Grid>
+                                        </form>
+                                    </CardContent>
+                                </TabPanel>
+
+                            </Box>
                         </Card>
 
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={5}>
 
                         <Card>
                             <List subheader={<ListSubheader>Para tener en cuenta:</ListSubheader>} >
@@ -285,4 +327,25 @@ export default function Page() {
         </>
     );
 
+}
+
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`full-width-tabpanel-${index}`}
+            aria-labelledby={`full-width-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box>
+                    {children}
+                </Box>
+            )}
+        </div>
+    );
 }

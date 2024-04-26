@@ -1,41 +1,69 @@
 'use client'
 
-import { Card, CardContent, CardHeader, Typography } from "@mui/material"
-import  useFetch  from "../../hooks/useFetch";
-
+import { Avatar, AvatarGroup, Card, CardContent, CardHeader, CircularProgress, Grid, List, ListItem, ListItemIcon, ListItemText } from "@mui/material"
+import useFetch from "../../hooks/useFetch";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const PerfilComponent = ({ id }) => {
 
-   // const { data, loading, error } = useFetch("api/contribuyentes/" + id, { 'method': 'GET' });
-  
- let loading = true;
+    const { data, loading } = useFetch("api/contribuyentes/" + id, { 'method': 'GET' });
+
+    //let loading = true;
     return (
 
         <>
-            <Card padding={2} className="card-blue" elevate={4}>
+            <Card padding={2} className="card-contribuidor" elevation={3}>
                 {
                     loading ?
                         <>
                             <CardContent>
-
+                                <Grid container justifyContent="center"
+                                    alignItems="center" padding={1}>
+                                    <CircularProgress color="inherit" />
+                                </Grid>
                             </CardContent>
                         </>
                         :
                         <>
 
-                            <CardHeader title="Shrimp and Chorizo Paella"
-                                subheader="September 14, 2016" />
+
 
                             <CardContent>
-                                <Typography variant="body1" color="text.secondary">
-                                    Este formulario te ayuda a encontrar la información del titular para pagar el servicio de agua. Puedes buscar utilizando el número de folio único, el CURP o el número telefónico del titular. Facilita tu pago y gestiona tus cuentas de forma rápida y sencilla.
-                                </Typography>
+                                <Grid container alignItems="center">
+                                    <Grid item xs>
+                                        <Grid container justifyContent="center" padding={1}>
+                                            <AvatarGroup total={1}>
+
+                                                <Avatar variant="circular" sx={{ width: 128, height: 128 }}>
+                                                    <AccountCircleIcon />
+                                                </Avatar>
+                                            </AvatarGroup>
+
+                                        </Grid>
+                                    </Grid>
+
+                                    <Grid item xs={9}>
+                                        <Grid container padding={1}>
+                                            <List>
+                                                <ListItem>
+                                                    <ListItemText
+                                                        primary={data.nombre + " " + data.apellido_paterno + " " + data.apellido_materno}
+                                                        secondary={data.correo_electronico}
+                                                    />
+                                                </ListItem>
+
+                                            </List>
+
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+
                             </CardContent>
                         </>
 
 
                 }
 
-            </Card>
+            </Card >
         </>
 
 

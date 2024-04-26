@@ -5,9 +5,11 @@ import React, { createContext, useState } from 'react';
 const ContribuyenteContext = createContext();
 
 const ContribuyenteProvider = ({ children }) => {
+
     const [contribuyenteSeleccionado, setContribuyenteSeleccionado] = useState(() => {
+        const storedContribuyente = typeof window !== 'undefined' ? window.localStorage.getItem('contribuyenteSeleccionado') : null;
+
         // Recuperar el contribuyente seleccionado del localStorage al cargar el componente
-        const storedContribuyente = localStorage.getItem('contribuyenteSeleccionado');
         return storedContribuyente ? JSON.parse(storedContribuyente) : null;
     });
     const [infoContribuyente, setInfoContribuyente] = useState(null);

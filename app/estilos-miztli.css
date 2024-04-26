@@ -61,6 +61,12 @@ body {
     background: linear-gradient(175deg, #ff7474, #8b1753);
     background-color: #8b1753; /* Color de fondo de respaldo */
   }
+
+  .card-contribuidor {
+    background: linear-gradient(175deg, #9590fa, #15389b);
+    background-color: #15389b;
+    color: #fff;
+  }
   
 /* Botones Personalizados */
 .boton-yellow {

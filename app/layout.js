@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body>
 
-                <ContribuyenteProvider >
+                <ContribuyenteProvider>
 
                     <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                         <ThemeProvider theme={theme}>
@@ -54,16 +54,16 @@ export default function RootLayout({ children }) {
                                     </Box>
                                     <Link href="/" passHref>
 
-                                        <Button contained="true" className='boton-menu'><HouseRoundedIcon /><Hidden smDown>Principal</Hidden></Button>
+                                        <Button contained="true" className='boton-menu'><HouseRoundedIcon /><Hidden mdDown>Principal</Hidden></Button>
                                     </Link>
 
                                     <Link href="/buscar" passHref>
 
-                                        <Button contained="true" className='boton-menu'><ReceiptIcon /><Hidden smDown>Pagar Servicios</Hidden></Button>
+                                        <Button contained="true" className='boton-menu'><ReceiptIcon /><Hidden mdDown>Pagar Servicios</Hidden></Button>
                                     </Link>
                                     <Link href="/preguntas-frecuentes" passHref>
 
-                                        <Button contained="true" className='boton-menu'><ContactSupportIcon /> <Hidden smDown>Preguntas Frencuentes</Hidden></Button>
+                                        <Button contained="true" className='boton-menu'><ContactSupportIcon /> <Hidden mdDown>Preguntas Frencuentes</Hidden></Button>
 
                                     </Link>
                                 </Toolbar>
