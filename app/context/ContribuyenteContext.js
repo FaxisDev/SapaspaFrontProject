@@ -1,15 +1,20 @@
 'use client'
 
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 const ContribuyenteContext = createContext();
 
 const ContribuyenteProvider = ({ children }) => {
-    const [contribuyenteSeleccionado, setContribuyenteSeleccionado] = useState(null);
-
+    const [contribuyenteSeleccionado, setContribuyenteSeleccionado] = useState(() => {
+        // Recuperar el contribuyente seleccionado del localStorage al cargar el componente
+        const storedContribuyente = localStorage.getItem('contribuyenteSeleccionado');
+        return storedContribuyente ? JSON.parse(storedContribuyente) : null;
+    });
     const [infoContribuyente, setInfoContribuyente] = useState(null);
 
     const seleccionarContribuyente = (contribuyente) => {
+        // Almacenar el contribuyente seleccionado en localStorage al usar la función seleccionarContribuyente
+        localStorage.setItem('contribuyenteSeleccionado', JSON.stringify(contribuyente));
         setContribuyenteSeleccionado(contribuyente);
     };
 
@@ -18,6 +23,7 @@ const ContribuyenteProvider = ({ children }) => {
     }
 
     const limpiarContribuyenteSeleccionado = () => {
+        localStorage.removeItem('contribuyenteSeleccionado');
         setContribuyenteSeleccionado(null);
         setInfoContribuyente(null);
     };
