@@ -11,7 +11,7 @@ export const PerfilComponent = ({ id }) => {
     return (
 
         <>
-            <Card padding={2} className="card-contribuidor" elevation={3}>
+            <Card padding={2} className="card-contribuidor" elevation={6}>
                 {
                     loading ?
                         <>
@@ -31,7 +31,7 @@ export const PerfilComponent = ({ id }) => {
                                 <Grid container alignItems="center">
                                     <Grid item xs>
                                         <Grid container justifyContent="center" padding={1}>
-                                            <AvatarGroup total={1}>
+                                            <AvatarGroup total={1} className="animate__animated animate__rotateIn ">
 
                                                 <Avatar variant="circular" sx={{ width: 128, height: 128 }}>
                                                     <AccountCircleIcon />

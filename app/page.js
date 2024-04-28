@@ -1,180 +1,65 @@
 
 'use client'
-import { Alert, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, Container, Divider, Typography } from "@mui/material";
+import { Alert, AlertTitle, Card, CardContent, CardMedia, Container, Divider, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
 
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
 import TarifaComponent from './components/principal/TarifaComponent';
+import OpcionesComponent from './components/principal/OpcionesComponent';
+import SliderImagenesComponent from './components/principal/SliderImagenesComponent';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Parallax, Pagination, Navigation } from 'swiper/modules';
 
 export default function Page() {
-
-    // Obtener la fecha actual
-    const fechaActual = new Date();
-
-    // Formatear la fecha en español
-    const fechaFormateada = format(fechaActual, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: es });
-
 
     return (
 
         <>
+
+            <SliderImagenesComponent />
+            <OpcionesComponent />
+
             <Container>
                 <Grid container spacing={2} mb={2}>
-                    <Grid xs={12}>
-
-
-
-                        <Swiper
-                            style={{
-                                '--swiper-navigation-color': '#fff',
-                                '--swiper-pagination-color': '#fff',
-                            }}
-                            speed={600}
-                            parallax={true}
-                            pagination={{
-                                clickable: true,
-                            }}
-                            navigation={true}
-                            modules={[Parallax, Pagination, Navigation]}
-                            className="mySwiper"
-                        >
-
-                            <SwiperSlide>
-
-                                <Card padding={1}>
-                                    <CardMedia
-                                        title="sdsd"
-
-                                        component="img"
-                                        height="450"
-                                        image="/img/visual/ejemplo_6.jpg"
-                                        alt="Agua Pura"
-                                        className="animate__animated animate__fadeIn  animate__delay-1s"
-                                    />
-
-                                    <CardContent>
-
-
-                                        <Typography variant="h5"  >
-                                            ¡Bienvenido/a al portal de Agua Potable y Alcantarillado de San Pablo Atlalzalpan!
-                                        </Typography>
-
-                                        <div className="subtitle" data-swiper-parallax="-200">
-                                            <Typography variant="body1" color="text.secondary">
-                                                Estamos aquí para hacer que el proceso de pago de tu servicio sea lo más fácil y seguro posible.
-                                            </Typography>
-                                        </div>
-
-                                    </CardContent>
-                                </Card>
-
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="title" data-swiper-parallax="-300">
-                                    
-                                
-                                
-                                    <CardMedia
-                                        title="sdsd"
-
-                                        component="img"
-                                        height="450"
-                                        image="/img/visual/ejemplo_8.jpg"
-                                        alt="Agua Pura"
-                                        className="animate__animated animate__fadeIn  animate__delay-1s"
-                                    />
-
-                                    <CardContent>
-                                     
-
-                                    </CardContent>
-                                </div>
-                                <div className="" data-swiper-parallax="-200">
-                                    
-                                </div>
-                                <div className="text" data-swiper-parallax="-100">
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="title" data-swiper-parallax="-300">
-
-
-                                
-                                    <CardMedia
-                                        title="sdsd"
-
-                                        component="img"
-                                        height="450"
-                                        image="/img/visual/ejemplo_11.jpg"
-                                        alt=""
-                                        className="animate__animated animate__fadeIn  animate__delay-1s"
-                                    />
-
-                                    <CardContent>
-                                    
-
-                                    </CardContent>
-                                </div>
-                                <div className="" data-swiper-parallax="-200">
-                                    
-                                </div>
-                                <div className="text" data-swiper-parallax="-100">
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                            </SwiperSlide>
-                        </Swiper>
-
-                    </Grid>
                     <Grid xs={12} md={6} >
 
-                        <Card padding={2} className="card-blue">
+                        <Card padding={2} className="card-darkblue animate__animated animate__flipInX" elevation={4} >
                             <CardContent>
-                            <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
-                            Tarifa Justa y Transparente para Todos
+                                <Typography gutterBottom variant="subtitle2" padding={2} >
+                                    Tarifa Justa y Transparente para Todos
                                 </Typography>
                                 <Divider />
-                                <Typography variant="body1" color="text.secondary" padding={2}>
+                                <Typography variant="body1" padding={2} color="inherit">
                                     En nuestro compromiso de brindar un servicio equitativo y transparente, presentamos nuestras tarifas de agua, las cuales son aplicables para todos nuestros usuarios. Es importante destacar que estas tarifas están sujetas a posibles ajustes anuales, en línea con las regulaciones y condiciones del mercado.
                                 </Typography>
                             </CardContent>
+                            <CardMedia
+                                title="Tarifa Justa y Transparente para Todos"
 
-                      
+                                component="img"
+                                height="210"
+                                image="/img/visual/origami/desarrollo-urbano.jpg"
+                                alt="Tarifa Justa y Transparente para Todos"
+                                className="animate__animated animate__fadeIn  animate__delay-1s"
+                            />
+
                         </Card>
                     </Grid>
                     <Grid xs={12} md={6}>
 
-                        <Card className="card-green">
-                        <CardContent> 
+                        <Card>
+                            <TarifaComponent />
 
-  
-                                <TarifaComponent />
-                        </CardContent>
+
                         </Card>
 
 
                     </Grid>
                 </Grid>
+
             </Container>
+
 
 
             <Container>
@@ -183,12 +68,19 @@ export default function Page() {
 
                     <Grid xs={12}>
 
-                        <Alert icon={<WaterDropIcon fontSize="inherit" />} severity="info">
-                            <Typography variant="subtitle2">
+                        <Card padding={1} elevation={2} >
 
-                                El agua es un recurso esencial para la vida en nuestro planeta. Aunque la Tierra está cubierta en un 70% por agua, solo una pequeña fracción de ese porcentaje es agua dulce disponible para consumo humano. Es por eso que es crucial que todos tomemos medidas para conservar y proteger este recurso natural invaluable.
-                            </Typography>
-                        </Alert>
+                            <Alert icon={<WaterDropIcon fontSize="inherit" />} severity="info" variant="filled">
+                                <AlertTitle>¡Cuida el agua!</AlertTitle>
+                                <Typography variant="subtitle2">
+
+                                    El agua es un recurso esencial para la vida en nuestro planeta. Aunque la Tierra está cubierta en un 70% por agua, solo una pequeña fracción de ese porcentaje es agua dulce disponible para consumo humano. Es por eso que es crucial que todos tomemos medidas para conservar y proteger este recurso natural invaluable.
+                                </Typography>
+                            </Alert>
+
+
+                        </Card>
+
 
                     </Grid>
                     <Grid xs={6} md={8}>
@@ -201,6 +93,17 @@ export default function Page() {
                     <Grid xs={12} sm={6} md={4}>
 
                         <Card>
+
+                            <CardMedia
+                                title="Reciclar y reutilizar el agua"
+
+                                component="img"
+                                height="210"
+                                image="/img/visual/origami/reciclar-agua.jpg"
+                                alt="Reciclar y reutilizar el agua"
+                                className="animate__animated animate__fadeIn  animate__delay-1s"
+                            />
+
 
                             <CardContent>
                                 <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
@@ -218,6 +121,16 @@ export default function Page() {
 
                         <Card>
 
+                            <CardMedia
+                                title="Cuidado del agua"
+
+                                component="img"
+                                height="210"
+                                image="/img/visual/origami/medio-ambiente.jpg"
+                                alt="Cuidado del agua"
+                                className="animate__animated animate__fadeIn  animate__delay-1s"
+                            />
+
                             <CardContent>
                                 <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
                                     Limitar el uso de la manguera
@@ -233,6 +146,15 @@ export default function Page() {
                     <Grid xs={12} sm={6} md={4}>
 
                         <Card>
+                            <CardMedia
+                                title="Educación y concienciación"
+
+                                component="img"
+                                height="210"
+                                image="/img/visual/origami/educacion.jpg"
+                                alt="Educación y concienciación"
+                                className="animate__animated animate__fadeIn  animate__delay-1s"
+                            />
 
                             <CardContent>
                                 <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
@@ -255,3 +177,6 @@ export default function Page() {
 
 
 }
+
+
+

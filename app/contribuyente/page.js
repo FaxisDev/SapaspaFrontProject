@@ -2,12 +2,15 @@
 
 import { useContext, useEffect, useState } from "react";
 import { ContribuyenteContext } from "../context/ContribuyenteContext";
-import { Box, Container, Grid, Tab, Tabs } from "@mui/material";
+import { Box, Card, Container, Grid, Tab, Tabs } from "@mui/material";
 import { PerfilComponent } from "../components/contribuyente/PerfilComponent";
 import { DetallesComponent } from "../components/contribuyente/DetallesComponent";
 import PropiedadesComponent from "../components/contribuyente/PropiedadesComponent";
 import WbShadeIcon from '@mui/icons-material/WbShade';
 import ReceiptIcon from '@mui/icons-material/Receipt';
+
+
+
 
 const Page = () => {
 
@@ -44,20 +47,24 @@ const Page = () => {
                 </Grid>
 
                 <Grid item xs={12} md={8}>
-                    <Box sx={{ bgcolor: 'background.paper' }}>
-                        <Tabs value={seleccionarTab} onChange={handleChange} centered variant="fullWidth">
-                            <Tab label="Propiedades" icon={<WbShadeIcon />} />
-                            <Tab label="Últimos Recibos" icon={<ReceiptIcon />} />
-                        </Tabs>
 
-                        <TabPanel value={seleccionarTab} index={0}>
-                            <PropiedadesComponent id={contribuyenteSeleccionado} />
-                        </TabPanel>
-                        <TabPanel value={seleccionarTab} index={1}>
-                            Item Two
-                        </TabPanel>
+                    <Card padding={2} elevation={6}>
 
-                    </Box>
+                        <Box sx={{ bgcolor: 'background.paper' }}>
+                            <Tabs value={seleccionarTab} onChange={handleChange} centered variant="fullWidth">
+                                <Tab label="Propiedades" icon={<WbShadeIcon />} />
+                                <Tab label="Últimos Recibos" icon={<ReceiptIcon />} />
+                            </Tabs>
+
+                            <TabPanel value={seleccionarTab} index={0}>
+                                <PropiedadesComponent id={contribuyenteSeleccionado} />
+                            </TabPanel>
+                            <TabPanel value={seleccionarTab} index={1}>
+                                Item Two
+                            </TabPanel>
+
+                        </Box>
+                    </Card>
 
                 </Grid>
 

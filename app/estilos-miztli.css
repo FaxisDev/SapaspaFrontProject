@@ -3,24 +3,19 @@ body {
     background-color: #dae2eb;
     margin: 0;
     padding: 0;
-
 }
-
 
 .barra-menu {
     box-shadow: none;
     background-color: #6bb2bc;
-    color: #38474D;
-    
+    color: #38474d;
 }
-
 
 .barra-footer {
     box-shadow: none;
-    background: url('/img/texturas/prismaticos.png') repeat #465f7d;
+    background: url("/img/texturas/prismaticos.png") repeat #465f7d;
     color: #ffffff;
     padding: 5px;
-    
 }
 .footer-title-list {
     background: none;
@@ -34,12 +29,11 @@ body {
 }
 
 .jumbotron {
-    background: #87A2C0;
-
+    background: #87a2c0;
 }
 
 .boton-menu {
-    color: #2D4A4E;
+    color: #2d4a4e;
 }
 
 /* Estilo para una tarjeta con fondo azul */
@@ -48,28 +42,45 @@ body {
     background: linear-gradient(175deg, #6dd5fa, #47a6e5);
     /* Fallback para navegadores que no admiten gradientes */
     background-color: #47a6e5; /* Color de fondo de respaldo */
-  }
-  
-  /* Estilo para una tarjeta con fondo verde */
-  .card-green{
+}
+
+/* Estilo para una tarjeta con fondo verde */
+.card-green {
     background: linear-gradient(175deg, #74ffcc, #178b5c);
     background-color: #178b5c; /* Color de fondo de respaldo */
-  }
-  
-  /* Estilo para una tarjeta con fondo rojo */
-  .card-red{
+}
+
+/* Estilo para una tarjeta con fondo rojo */
+.card-red {
     background: linear-gradient(175deg, #ff7474, #8b1753);
     background-color: #8b1753; /* Color de fondo de respaldo */
-  }
+}
 
-  .card-contribuidor {
-    background: linear-gradient(175deg, #9590fa, #15389b);
-    background-color: #15389b;
+.card-contribuidor {
+    background: linear-gradient(175deg, #8a6ccd, #09387c);
+    background-color: #09387c;
     color: #fff;
-  }
-  
+}
+
+.card-darkblue {
+    background-color: #2b3e4d;
+    color: #fff;
+}
+
 /* Botones Personalizados */
 .boton-yellow {
-
     background-color: #f5c224;
+}
+
+/* Boton Seleciones */
+.boton-seleccionar-red {
+    background-color: #df5252;
+}
+
+.boton-seleccionar-yellow {
+    background-color: #dfb252;
+}
+
+.boton-seleccionar-green {
+    background-color: #badf52;
 }

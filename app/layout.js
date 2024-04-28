@@ -48,6 +48,7 @@ export default function RootLayout({ children }) {
                                         width={144}
                                         height={64}
                                         alt="Sapaspa"
+                                        priority={true}
                                         sx={{ flexGrow: 1 }}
                                     />
                                     <Box sx={{ flexGrow: 1 }}>
@@ -59,7 +60,7 @@ export default function RootLayout({ children }) {
 
                                     <Link href="/buscar" passHref>
 
-                                        <Button contained="true" className='boton-menu'><ReceiptIcon /><Hidden mdDown>Pagar Servicios</Hidden></Button>
+                                        <Button contained="true" className='boton-menu'><ReceiptIcon /><Hidden mdDown>Pagar En Linea</Hidden></Button>
                                     </Link>
                                     <Link href="/preguntas-frecuentes" passHref>
 

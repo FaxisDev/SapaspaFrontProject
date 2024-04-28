@@ -1,5 +1,5 @@
 'use client'
-import { Alert, AlertTitle, Avatar, Box, Button, Card, CardContent, CardHeader, CircularProgress, Container, Divider, FormHelperText, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Snackbar, Stack, Tab, Tabs, TextField, Typography } from "@mui/material";
+import { Alert, AlertTitle, Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, CircularProgress, Container, Divider, FormHelperText, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Snackbar, Stack, Tab, Tabs, TextField, Typography } from "@mui/material";
 import useFormData from '../hooks/useFormData';
 
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
@@ -134,35 +134,36 @@ export default function Page() {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <Card padding={1}>
-                            <CardContent>
+                        <Card elevation={2} className="animate__animated animate__zoomInDown">
 
-                                <Alert severity="info">
-                                    <AlertTitle>¡Muy importante!</AlertTitle>
-                                    Este formulario te ayuda a encontrar la información del titular para pagar el servicio de agua. Puedes buscar utilizando el número de folio único, el CURP o el número telefónico del titular. Facilita tu pago y gestiona tus cuentas de forma rápida y sencilla.
-                                </Alert>
-                            </CardContent>
+
+                            <Alert severity="info" variant="filled">
+                                <AlertTitle>¡Muy importante!</AlertTitle>
+                                Este formulario te ayuda a encontrar la información del titular para pagar el servicio de agua. Puedes buscar utilizando el número de folio único, el CURP o el número telefónico del titular. Facilita tu pago y gestiona tus cuentas de forma rápida y sencilla.
+                            </Alert>
+
                         </Card>
                     </Grid>
                 </Grid>
                 <Grid container spacing={2} mt={2}>
                     <Grid item xs={12} md={7}>
 
-                        <Card>
+                        <Card className="animate__animated animate__fadeIn  animate__delay-1s" elevation={5}>
 
                             <Box sx={{ bgcolor: 'background.paper' }}>
                                 <Tabs value={seleccionarTab} onChange={handleChange} centered variant="fullWidth">
                                     <Tab label="Metodo 1" />
                                     <Tab label="Metodo 2" />
                                 </Tabs>
+
                                 <CardHeader title="Formulario" titleTypographyProps={{ align: 'center' }} />
 
                                 <Alert severity="success">Todos los campos son obligatorios.</Alert>
 
 
                                 <TabPanel value={seleccionarTab} index={0}>
-                                    <CardContent>
-                                        <form onSubmit={handleSubmit}>
+                                    <form onSubmit={handleSubmit}>
+                                        <CardContent>
                                             <Grid container spacing={2}>
                                                 <Grid item xs={12}>
                                                     <TextField
@@ -200,6 +201,14 @@ export default function Page() {
                                                     </FormHelperText>
 
                                                 </Grid>
+
+                                            </Grid>
+
+                                        </CardContent>
+                                        <CardActions>
+
+                                            <Grid container spacing={2}>
+
                                                 <Grid item xs={12}>
                                                     <Stack direction="row" justifyContent="flex-end"
                                                         alignItems="center" spacing={1}>
@@ -217,12 +226,13 @@ export default function Page() {
                                                     </Stack>
                                                 </Grid>
                                             </Grid>
-                                        </form>
-                                    </CardContent>
+                                        </CardActions>
+
+                                    </form>
                                 </TabPanel>
                                 <TabPanel value={seleccionarTab} index={1}>
-                                    <CardContent>
-                                        <form onSubmit={handleSubmit}>
+                                    <form onSubmit={handleSubmit}>
+                                        <CardContent>
                                             <Grid container spacing={2}>
 
                                                 <Grid item xs={12}>
@@ -242,6 +252,15 @@ export default function Page() {
                                                     </FormHelperText>
                                                 </Grid>
 
+
+                                            </Grid>
+
+                                        </CardContent>
+
+                                        <CardActions>
+
+                                            <Grid container spacing={2}>
+
                                                 <Grid item xs={12}>
                                                     <Stack direction="row" justifyContent="flex-end"
                                                         alignItems="center" spacing={1}>
@@ -259,17 +278,30 @@ export default function Page() {
                                                     </Stack>
                                                 </Grid>
                                             </Grid>
-                                        </form>
-                                    </CardContent>
+                                        </CardActions>
+
+                                    </form>
                                 </TabPanel>
 
                             </Box>
+
+                            <CardMedia
+                                title="Informatica"
+
+                                component="img"
+                                height="115"
+                                image="/img/visual/origami/informatica.jpg"
+                                alt="Informatica"
+                                className="animate__animated animate__fadeIn  animate__delay-1s"
+                            />
+
                         </Card>
 
                     </Grid>
                     <Grid item xs={12} md={5}>
 
-                        <Card>
+                        <Card className="animate__animated animate__zoomIn">
+
                             <List subheader={<ListSubheader>Para tener en cuenta:</ListSubheader>} >
                                 <ListItem disablePadding>
                                     <ListItemButton>
@@ -318,12 +350,13 @@ export default function Page() {
                             </List>
 
 
+
                         </Card>
 
 
                     </Grid>
                 </Grid>
-            </Container>
+            </Container >
         </>
     );
 

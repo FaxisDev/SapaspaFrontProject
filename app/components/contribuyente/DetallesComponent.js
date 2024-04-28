@@ -6,13 +6,19 @@ import ArticleIcon from '@mui/icons-material/Article';
 import BadgeIcon from '@mui/icons-material/Badge';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
-export const DetallesComponent = ({ id }) => {
 
+
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
+
+export const DetallesComponent = ({ id }) => {
     const { data, loading } = useFetch("api/contribuyentes/" + id, { 'method': 'GET' });
 
 
+
+
     return (
-        <Card padding={2} elevation={1}>
+        <Card padding={2} elevation={1} className="animate__animated animate__backInLeft">
 
             {
                 loading ?
@@ -66,7 +72,7 @@ export const DetallesComponent = ({ id }) => {
                                     </ListItemIcon>
                                     <ListItemText
                                         primary="Fecha de Alta"
-                                        secondary={data.fecha_creacion}
+                                        secondary={data.fecha_creacion ? format(data.fecha_creacion, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: es }) : data.fecha_creacion}
                                     />
                                 </ListItem>
 
