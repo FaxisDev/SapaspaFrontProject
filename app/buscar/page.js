@@ -134,7 +134,7 @@ export default function Page() {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <Card elevation={2} className="animate__animated animate__zoomInDown">
+                        <Card elevation={2} className="animate__animated animate__zoomIn">
 
 
                             <Alert severity="info" variant="filled">
@@ -148,7 +148,7 @@ export default function Page() {
                 <Grid container spacing={2} mt={2}>
                     <Grid item xs={12} md={7}>
 
-                        <Card className="animate__animated animate__fadeIn  animate__delay-1s" elevation={5}>
+                        <Card className="animate__animated animate__zoomIn" elevation={5}>
 
                             <Box sx={{ bgcolor: 'background.paper' }}>
                                 <Tabs value={seleccionarTab} onChange={handleChange} centered variant="fullWidth">
@@ -212,12 +212,12 @@ export default function Page() {
                                                 <Grid item xs={12}>
                                                     <Stack direction="row" justifyContent="flex-end"
                                                         alignItems="center" spacing={1}>
-                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="contained" color="inherit" className="boton-yellow" onClick={limpiarFormularioData} >
+                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="outlined" color="inherit" className="boton-limpiar" onClick={limpiarFormularioData} >
                                                             Limpiar
                                                         </Button>
 
 
-                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="contained" color="primary" type="submit" disabled={loading}>
+                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="outlined" color="primary" type="submit" disabled={loading}>
                                                             {loading ? 'Buscando...' : 'Buscar'}
                                                         </Button>
 
@@ -264,12 +264,12 @@ export default function Page() {
                                                 <Grid item xs={12}>
                                                     <Stack direction="row" justifyContent="flex-end"
                                                         alignItems="center" spacing={1}>
-                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="contained" color="inherit" className="boton-yellow" onClick={limpiarFormularioData} >
+                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="outlined" color="inherit" className="boton-limpiar" onClick={limpiarFormularioData} >
                                                             Limpiar
                                                         </Button>
 
 
-                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="contained" color="primary" type="submit" disabled={loading}>
+                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="outlined" color="primary" type="submit" disabled={loading}>
                                                             {loading ? 'Buscando...' : 'Buscar'}
                                                         </Button>
 

@@ -11,7 +11,7 @@ export const PerfilComponent = ({ id }) => {
     return (
 
         <>
-            <Card padding={2} className="card-contribuidor" elevation={6}>
+            <Card padding={2} className="card-contribuidor" elevation={7}>
                 {
                     loading ?
                         <>

@@ -7,13 +7,20 @@ body {
 
 .barra-menu {
     box-shadow: none;
-    background-color: #6bb2bc;
-    color: #38474d;
+    background: url("/img/texturas/prismaticos.png") repeat #0a898b;
+    color: #fff;
+}
+
+.barra-semi-footer {
+    box-shadow: none;
+    background: url("/img/texturas/prismaticos.png")repeat #DE6154;
+    color: #ffffff;
+    padding: 5px;
 }
 
 .barra-footer {
     box-shadow: none;
-    background: url("/img/texturas/prismaticos.png") repeat #465f7d;
+    background: url("/img/texturas/prismaticos.png") repeat #303c51;
     color: #ffffff;
     padding: 5px;
 }
@@ -33,7 +40,7 @@ body {
 }
 
 .boton-menu {
-    color: #2d4a4e;
+    color: #c9f5f3;
 }
 
 /* Estilo para una tarjeta con fondo azul */
@@ -57,8 +64,7 @@ body {
 }
 
 .card-contribuidor {
-    background: linear-gradient(175deg, #8a6ccd, #09387c);
-    background-color: #09387c;
+    background: url(/img/texturas/prismaticos.png) repeat #bd2f3e;
     color: #fff;
 }
 
@@ -68,8 +74,9 @@ body {
 }
 
 /* Botones Personalizados */
-.boton-yellow {
-    background-color: #f5c224;
+.boton-limpiar {
+    border-color: #15c6e6;
+    color: #109db6;
 }
 
 /* Boton Seleciones */
@@ -84,3 +91,4 @@ body {
 .boton-seleccionar-green {
     background-color: #badf52;
 }
+/* Chips Alertados */

@@ -6,17 +6,17 @@ const ContribuyenteContext = createContext();
 
 const ContribuyenteProvider = ({ children }) => {
 
+    const [infoContribuyente, setInfoContribuyente] = useState(null);
     const [contribuyenteSeleccionado, setContribuyenteSeleccionado] = useState(() => {
-        const storedContribuyente = typeof window !== 'undefined' ? window.localStorage.getItem('contribuyenteSeleccionado') : null;
+        const storedContribuyente = typeof window !== 'undefined' ? window.localStorage.getItem('id_contribuyente') : null;
 
         // Recuperar el contribuyente seleccionado del localStorage al cargar el componente
         return storedContribuyente ? JSON.parse(storedContribuyente) : null;
     });
-    const [infoContribuyente, setInfoContribuyente] = useState(null);
 
     const seleccionarContribuyente = (contribuyente) => {
         // Almacenar el contribuyente seleccionado en localStorage al usar la función seleccionarContribuyente
-        localStorage.setItem('contribuyenteSeleccionado', JSON.stringify(contribuyente));
+        localStorage.setItem('id_contribuyente', JSON.stringify(contribuyente));
         setContribuyenteSeleccionado(contribuyente);
     };
 
@@ -25,7 +25,7 @@ const ContribuyenteProvider = ({ children }) => {
     }
 
     const limpiarContribuyenteSeleccionado = () => {
-        localStorage.removeItem('contribuyenteSeleccionado');
+        localStorage.removeItem('id_contribuyente');
         setContribuyenteSeleccionado(null);
         setInfoContribuyente(null);
     };

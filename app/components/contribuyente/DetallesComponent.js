@@ -18,7 +18,7 @@ export const DetallesComponent = ({ id }) => {
 
 
     return (
-        <Card padding={2} elevation={1} className="animate__animated animate__backInLeft">
+        <Card padding={2} elevation={4} className="animate__animated animate__backInLeft">
 
             {
                 loading ?
