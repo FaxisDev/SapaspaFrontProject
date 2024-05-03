@@ -43,28 +43,19 @@ body {
     color: #c9f5f3;
 }
 
-/* Estilo para una tarjeta con fondo azul */
-.card-blue {
-    /* Fondo con gradiente lineal a 175deg grados */
-    background: linear-gradient(175deg, #6dd5fa, #47a6e5);
-    /* Fallback para navegadores que no admiten gradientes */
-    background-color: #47a6e5; /* Color de fondo de respaldo */
+/* Alerts */
+.alerta-verde {
+    background-color: #179172;
+    color: #ffffff;
 }
 
-/* Estilo para una tarjeta con fondo verde */
-.card-green {
-    background: linear-gradient(175deg, #74ffcc, #178b5c);
-    background-color: #178b5c; /* Color de fondo de respaldo */
-}
-
-/* Estilo para una tarjeta con fondo rojo */
-.card-red {
-    background: linear-gradient(175deg, #ff7474, #8b1753);
-    background-color: #8b1753; /* Color de fondo de respaldo */
+.alerta-rojo {
+    background-color: #e05050;
+    color: #ffffff; 
 }
 
 .card-contribuidor {
-    background: url(/img/texturas/prismaticos.png) repeat #bd2f3e;
+    background: url(/img/texturas/prismaticos.png) repeat #3490af;
     color: #fff;
 }
 
@@ -85,7 +76,7 @@ body {
 }
 
 .boton-seleccionar-yellow {
-    background-color: #dfb252;
+    background-color: #ecb135;
 }
 
 .boton-seleccionar-green {

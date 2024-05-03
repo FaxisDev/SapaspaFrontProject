@@ -2,81 +2,76 @@
 
 import { useContext } from 'react';
 import { ContribuyenteContext } from '../../context/ContribuyenteContext';
-import { Button, Card, CardContent, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Alert, AlertTitle, Button, Card, Chip, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import Image from 'next/image';
+
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import SearchIcon from '@mui/icons-material/Search';
+
 import { useRouter } from 'next/navigation';
+import NoDisponibleComponent from '../../components/errors/NoDisponibleComponent';
+import { BootstrapTooltip } from '../../components/layout/BootstrapTooltip';
 
 export default function page() {
     const { infoContribuyente } = useContext(ContribuyenteContext);
 
     return (
-        <Container>
-            <Grid container spacing={2} >
+        <>
 
-                {!infoContribuyente ?
+            {!infoContribuyente ?
 
-                    <>
+                <>
 
-                        <Grid container justifyContent="center"
-                            alignItems="center" padding={1}>
-                            <Image
-                                src="/img/iconos/no_encontrado.svg"
-                                width={240}
-                                height={164}
-                                alt="Sapaspa"
-                                sx={{ flexGrow: 1 }}
-                            />
-                        </Grid>
+                    <NoDisponibleComponent />
+                </>
 
-                        <Grid item xs={12}>
-                            <Card padding={2} className="card-red" elevation={4}>
-                                <CardContent>
-                                    <Typography variant="body1" color="text.secondary" align='center'>
-                                        No se encontro ningun registro.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
+                :
+                <>
+                    <Container>
+                        <Grid container spacing={2} >
+                            <Grid container justifyContent="center"
+                                alignItems="center" padding={1}>
+                                <Image
+                                    src="/img/iconos/encontrado.svg"
+                                    width={240}
+                                    height={164}
+                                    alt="Sapaspa"
+                                    sx={{ flexGrow: 1 }}
+                                />
+                            </Grid>
 
-                        </Grid>
-                    </>
+                            <Grid item xs={12}>
 
-                    :
-                    <>
-
-                        <Grid container justifyContent="center"
-                            alignItems="center" padding={1}>
-                            <Image
-                                src="/img/iconos/encontrado.svg"
-                                width={240}
-                                height={164}
-                                alt="Sapaspa"
-                                sx={{ flexGrow: 1 }}
-                            />
-                        </Grid>
-
-                        <Grid item xs={12}>
-                            <Card padding={2} className="card-red" elevation={4}>
-                                <CardContent>
-                                    <Typography variant="body1" color="text.secondary" align='center'>
-                                        Se encontraron {infoContribuyente.length} contribuyentes. Por favor, seleccione uno de la lista de resultados para continuar.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
+                                <Card elevation={2} className="animate__animated animate__zoomIn">
 
 
-                        <Grid item xs={12}>
-                            <Card padding={2} elevation={2}>
-                                <ResultadosComponent resultados={infoContribuyente} />
-                            </Card>
-                        </Grid>
+                                    <Alert className='alerta-verde' variant="filled" icon={<SearchIcon />}>
 
-                    </>
 
-                }
-            </Grid >
+                                        <AlertTitle>Se encontraron {infoContribuyente.length} contribuyentes.</AlertTitle>
+                                        Por favor, seleccione su perfil de la lista de resultados para continuar.
 
-        </Container >
+                                    </Alert>
+
+                                </Card>
+
+                            </Grid>
+
+
+                            <Grid item xs={12} mt={2}>
+                                <Card padding={2} elevation={2}>
+                                    <ResultadosComponent resultados={infoContribuyente} />
+                                </Card>
+                            </Grid>
+                        </Grid >
+
+                    </Container >
+                </>
+
+            }
+
+        </>
+
     )
 }
 
@@ -123,14 +118,23 @@ const ResultadosComponent = ({ resultados }) => {
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell align="center">
-                                {row.folio_unico}
+                                <Chip icon={<AssignmentIndIcon />} label={row.folio_unico} />
+
                             </TableCell>
                             <TableCell align="center" component="th" scope="row">{row.nombre} {row.apellido_paterno} {row.apellido_materno}</TableCell>
-                            <TableCell align="center">{row.correo_electronico}</TableCell>
                             <TableCell align="center">
-                                <Button key={row.id} variant="outlined" color="primary" onClick={() => handleOnSelectContribuyente(row.id)}>
-                                    Seleccionar
-                                </Button>
+
+                                {row.correo_electronico}
+
+                            </TableCell>
+                            <TableCell align="center">
+
+                                <BootstrapTooltip key={row.id} title="Seleccionar perfil" placement="right">
+
+                                    <Button key={row.id} variant="outlined" color="primary" onClick={() => handleOnSelectContribuyente(row.id)}>
+                                        Seleccionar
+                                    </Button>
+                                </BootstrapTooltip>
                             </TableCell>
                         </TableRow>
                     ))}

@@ -7,8 +7,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { useRouter } from 'next/navigation';
-import { Alert, CardContent, CircularProgress, Grid } from '@mui/material';
+import { Alert, CardContent, Chip, CircularProgress, Grid } from '@mui/material';
+import PaidIcon from '@mui/icons-material/Paid';
+
+
 import useFetch from '../../hooks/useFetch';
+
 
 export default function TarifaComponent() {
     const router = useRouter();
@@ -78,7 +82,13 @@ export default function TarifaComponent() {
                                                 <TableCell align="center">
                                                     {row.tipo}
                                                 </TableCell>
-                                                <TableCell align="center" component="th" scope="row">${row.precio_base} MXN</TableCell>
+                                                <TableCell align="center" component="th" scope="row">
+
+                                                    <Chip icon={<PaidIcon />} label={row.precio_base + " MXN"} />
+                                                        
+                                                        
+                                                   
+                                                </TableCell>
                                                 <TableCell align="center">{row.fecha_inicio_vigencia}</TableCell>
                                                 <TableCell align="center">
                                                     {row.fecha_fin_vigencia}

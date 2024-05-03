@@ -7,11 +7,12 @@ const ContribuyenteContext = createContext();
 const ContribuyenteProvider = ({ children }) => {
 
     const [infoContribuyente, setInfoContribuyente] = useState(null);
+
     const [contribuyenteSeleccionado, setContribuyenteSeleccionado] = useState(() => {
         const storedContribuyente = typeof window !== 'undefined' ? window.localStorage.getItem('id_contribuyente') : null;
 
         // Recuperar el contribuyente seleccionado del localStorage al cargar el componente
-        return storedContribuyente ? JSON.parse(storedContribuyente) : null;
+       return storedContribuyente ? JSON.parse(storedContribuyente) : null;
     });
 
     const seleccionarContribuyente = (contribuyente) => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContribuyenteContext } from "../context/ContribuyenteContext";
 import { Box, Card, Container, Grid, Tab, Tabs } from "@mui/material";
 import { PerfilComponent } from "../components/contribuyente/PerfilComponent";
@@ -9,28 +9,34 @@ import PropiedadesComponent from "../components/contribuyente/PropiedadesCompone
 import WbShadeIcon from '@mui/icons-material/WbShade';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import NoDisponibleComponent from "../components/errors/NoDisponibleComponent";
+import ReloadingComponent from "../components/layout/ReloadingComponent"
 
 const Page = () => {
     const { contribuyenteSeleccionado } = useContext(ContribuyenteContext);
 
     const [seleccionarTab, setSeleccionarTab] = useState(0);
+    const [mounted, setMounted] = useState(false);
 
     const handleChange = (event, newValue) => {
         setSeleccionarTab(newValue);
     };
 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return ( <ReloadingComponent />); 
+
     return (
+
 
         <>
             {
+
                 !contribuyenteSeleccionado ?
-
-                    <NoDisponibleComponent />
-
-                    :
+                    <NoDisponibleComponent /> :
 
                     <Container>
-
                         <Grid container spacing={2} >
                             <Grid item xs={12}>
 
@@ -68,8 +74,9 @@ const Page = () => {
                         </Grid>
                     </Container>
             }
-
         </>
+
+
 
     );
 }
