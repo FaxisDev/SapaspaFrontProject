@@ -22,7 +22,7 @@ function ReloadingComponent() {
 
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="subtitle2" component="div" align="center" padding={2} className="animate__animated animate__pulse animate__infinite animate__slow">
+                            <Typography gutterBottom variant="subtitle2" component="div" align="center" padding={2}>
 
                                 ¡Estamos en ello! 🚀 ¡Gracias por aguantar!
                             </Typography>

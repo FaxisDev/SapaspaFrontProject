@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { ThemeProvider } from '@mui/material/styles';
 import { ContribuyenteProvider } from './context/ContribuyenteContext';
+import { PagoProvider } from './context/PagoContext';
 import theme from './theme';
 
 import Image from 'next/image';
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
             <body>
 
                 <ContribuyenteProvider>
+                <PagoProvider>
 
                     <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                         <ThemeProvider theme={theme}>
@@ -92,6 +94,7 @@ export default function RootLayout({ children }) {
                         </ThemeProvider>
 
                     </AppRouterCacheProvider>
+                </PagoProvider>
 
                 </ContribuyenteProvider>
 

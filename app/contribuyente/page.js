@@ -9,7 +9,8 @@ import PropiedadesComponent from "../components/contribuyente/PropiedadesCompone
 import WbShadeIcon from '@mui/icons-material/WbShade';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import NoDisponibleComponent from "../components/errors/NoDisponibleComponent";
-import ReloadingComponent from "../components/layout/ReloadingComponent"
+import ReloadingComponent from "../components/layout/ReloadingComponent";
+import TabPanel from "../components/layout/TabPanel";
 
 const Page = () => {
     const { contribuyenteSeleccionado } = useContext(ContribuyenteContext);
@@ -81,25 +82,7 @@ const Page = () => {
     );
 }
 
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
 
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`full-width-tabpanel-${index}`}
-            aria-labelledby={`full-width-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box>
-                    {children}
-                </Box>
-            )}
-        </div>
-    );
-}
 
 
 export default Page;

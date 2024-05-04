@@ -1,6 +1,6 @@
 'use client'
 
-import { Avatar, AvatarGroup, Card, CardContent, CardHeader, CircularProgress, Grid, List, ListItem, ListItemIcon, ListItemText } from "@mui/material"
+import { Avatar, AvatarGroup, Card, CardContent, CircularProgress, Grid, List, ListItem, ListItemText } from "@mui/material"
 import useFetch from "../../hooks/useFetch";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const PerfilComponent = ({ id }) => {
@@ -46,8 +46,13 @@ export const PerfilComponent = ({ id }) => {
                                             <List>
                                                 <ListItem>
                                                     <ListItemText
+
                                                         primary={data.nombre + " " + data.apellido_paterno + " " + data.apellido_materno}
                                                         secondary={data.correo_electronico}
+
+                                                        secondaryTypographyProps={{
+                                                            color: 'white'
+                                                        }}
                                                     />
                                                 </ListItem>
 
