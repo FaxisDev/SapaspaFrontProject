@@ -8,13 +8,16 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Alert, AlertTitle, Card, CardContent, Grid } from '@mui/material';
 import { useState } from 'react';
-
+import Step1Component from "../pago/Step1Component";
 
 
 function StepperPagoComponent() {
     const steps = ['Verificar datos', 'Seleccionar montos', 'Pagar'];
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
+
+    
+    const id_propiedad = 1;
 
     const isStepSkipped = (step) => {
         return skipped.has(step);
@@ -78,23 +81,13 @@ function StepperPagoComponent() {
                                     </Typography>
                                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                         <Box sx={{ flex: '1 1 auto' }} />
-                                        <Button onClick={handleReset}>Reset</Button>
+                                        <Button  onClick={handleReset}>Reset</Button>
                                     </Box>
                                 </>
                             ) : (
                                 <>
 
-                                    <Box>
-
-                                        <Alert className='alerta-verde' variant="filled" >
-
-
-                                            <AlertTitle>Verificación de Datos</AlertTitle>
-                                            Antes de pagar, asegúrate de que los datos de la propiedad estén correctos. Si lo están, haz clic en 'Siguiente'. Si no, agenda una cita con Sapaspa.
-
-                                        </Alert>
-
-                                    </Box>
+                                    {activeStep === 0 && <Step1Component id={id_propiedad} />}
 
 
                                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
