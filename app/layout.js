@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
 
                                         <Link href="/" passHref>
 
-                                            <Button contained="true" className='boton-menu'><HouseRoundedIcon /><Hidden mdDown>Principal</Hidden></Button>
+                                            <Button contained="true" className='boton-menu' startIcon={<HouseRoundedIcon />}><Hidden mdDown>Principal</Hidden></Button>
                                         </Link>
                                     </BootstrapTooltip>
 
@@ -68,14 +68,14 @@ export default function RootLayout({ children }) {
                                     <BootstrapTooltip title="Pagar En Linea">
                                         <Link href="/buscar" passHref>
 
-                                            <Button contained="true" className='boton-menu'><ReceiptIcon /><Hidden mdDown>Pagar En Linea</Hidden></Button>
+                                            <Button contained="true" className='boton-menu' startIcon={<ReceiptIcon />}><Hidden mdDown>Pagar En Linea</Hidden></Button>
                                         </Link>
                                     </BootstrapTooltip>
                                     <BootstrapTooltip title="Preguntas Frencuentes">
 
                                         <Link href="/preguntas-frecuentes" passHref>
 
-                                            <Button contained="true" className='boton-menu'><ContactSupportIcon /> <Hidden mdDown>Preguntas Frencuentes</Hidden></Button>
+                                            <Button contained="true" className='boton-menu' startIcon={<ContactSupportIcon />}> <Hidden mdDown>Preguntas Frencuentes</Hidden></Button>
 
                                         </Link>
                                     </BootstrapTooltip>
