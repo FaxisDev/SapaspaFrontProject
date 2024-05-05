@@ -1,6 +1,6 @@
 'use client'
 
-import  { createContext, useState } from 'react';
+import { createContext, useState } from 'react';
 
 const PagoContext = createContext();
 
@@ -8,16 +8,9 @@ const PagoProvider = ({ children }) => {
 
     const [infoStepPago, setInfoStepPago] = useState(null);
 
-    const [propiedadSeleccionada, setPropiedadSeleccionada] = useState(() => {
-        const storedPropiedad = typeof window !== 'undefined' ? window.localStorage.getItem('id_propiedad') : null;
-
-        // Recuperar el propiedad seleccionado del localStorage al cargar el componente
-       return storedPropiedad ? JSON.parse(storedPropiedad) : null;
-    });
+    const [propiedadSeleccionada, setPropiedadSeleccionada] = useState(null);
 
     const seleccionarPropiedad = (propiedad) => {
-        // Almacenar el propiedad seleccionado en localStorage al usar la función seleccionarPropiedad
-        localStorage.setItem('id_propiedad', JSON.stringify(propiedad));
         setPropiedadSeleccionada(propiedad);
     };
 
@@ -26,7 +19,6 @@ const PagoProvider = ({ children }) => {
     }
 
     const limpiarPropiedadSeleccionada = () => {
-        localStorage.removeItem('id_propiedad');
         setPropiedadSeleccionada(null);
         setInfoStepPago(null);
     };

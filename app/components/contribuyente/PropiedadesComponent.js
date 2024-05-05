@@ -1,11 +1,19 @@
 'use client'
 
-import { Alert, AlertTitle, Button, Card, CardContent, CardHeader, Chip, CircularProgress, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
+import { Alert, AlertTitle, Button, Card, CardContent, Chip, CircularProgress, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import useFetch from "../../hooks/useFetch";
 import { BootstrapTooltip } from "../layout/BootstrapTooltip";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useRouter } from "next/navigation";
+import { PagoContext } from "../../context/PagoContext";
+import { useContext } from "react";
 
 export default function PropiedadesComponent({ id }) {
+
+    const router = useRouter();
+
+    const { seleccionarPropiedad } = useContext(PagoContext);
+
 
     const { data, loading } = useFetch("api/propiedades/?contribuyente=" + id, { 'method': 'GET' });
 
@@ -22,6 +30,11 @@ export default function PropiedadesComponent({ id }) {
         { id: 'estatus', label: 'Estatus', align: 'center' },
         { id: 'opciones', label: 'Opciones', align: 'center' },
     ];
+
+    const handleOnClickSelecionarPropiedad = (id) => {
+        seleccionarPropiedad(id);
+        router.push('/pago')
+    }
 
 
     return (
@@ -94,7 +107,7 @@ export default function PropiedadesComponent({ id }) {
                                                 <TableCell align="center">
 
                                                     <BootstrapTooltip key={row.id} title="Pagar servicio de agua" placement="right">
-                                                        <Button key={row.id} variant="outlined" color="primary" >
+                                                        <Button key={row.id} variant="outlined" color="primary" onClick={() => handleOnClickSelecionarPropiedad(row.id)}>
                                                             Pagar
                                                         </Button>
 

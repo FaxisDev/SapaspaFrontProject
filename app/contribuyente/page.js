@@ -20,7 +20,7 @@ const Page = () => {
 
     const handleChange = (event, newValue) => {
         setSeleccionarTab(newValue);
-    };
+    };     
 
     useEffect(() => {
         setMounted(true);
