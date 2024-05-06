@@ -49,6 +49,11 @@ body {
     color: #ffffff;
 }
 
+.alerta-morada {
+    background-color: #535ba0;
+    color: #ffffff;
+}
+
 .alerta-rojo {
     background-color: #e05050;
     color: #ffffff; 

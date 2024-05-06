@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { Alert, AlertTitle, Card, CardContent, Grid } from '@mui/material';
 import { useState } from 'react';
 import Step1Component from "../pago/Step1Component";
+import Step2Component from "../pago/Step2Component";
 
 
 function StepperPagoComponent() {
@@ -88,7 +89,7 @@ function StepperPagoComponent() {
                                 <>
 
                                     {activeStep === 0 && <Step1Component id={id_propiedad} />}
-
+                                    {activeStep === 1 && <Step2Component id={id_propiedad} />}
 
                                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                         <Button
