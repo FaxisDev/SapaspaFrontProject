@@ -7,13 +7,13 @@ body {
 
 .barra-menu {
     box-shadow: none;
-    background: url("/img/texturas/prismaticos.png") repeat #0a898b;
+    background: url("/img/texturas/prismaticos.png") repeat #009d9f;
     color: #fff;
 }
 
 .barra-semi-footer {
     box-shadow: none;
-    background: url("/img/texturas/prismaticos.png")repeat #DE6154;
+    background: url("/img/texturas/prismaticos.png") repeat #429ee0;
     color: #ffffff;
     padding: 5px;
 }
@@ -56,7 +56,7 @@ body {
 
 .alerta-rojo {
     background-color: #e05050;
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 .card-contribuidor {

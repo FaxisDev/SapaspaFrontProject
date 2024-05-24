@@ -25,7 +25,7 @@ import Footer from './components/layout/Footer';
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Sapaspa',
+    title: 'Sapaspa - Agua Potable y Alcantarillado de San Pablo Atlalzalpan',
     description: 'Agua segura, pago fácil para todos.',
 }
 
