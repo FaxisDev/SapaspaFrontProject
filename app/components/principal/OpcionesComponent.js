@@ -25,10 +25,10 @@ function OpcionesComponent() {
                             }}
                             component="label"
                             role={undefined}
-                            variant="contained"
+                            variant="outlined"
                             fullWidth
                             size="large"
-                            className="boton-seleccionar-red animate__animated animate__zoomIn animate__delay-1s"
+                            className="boton-seleccionar-x animate__animated animate__zoomIn animate__delay-1s"
                             color="inherit"
                             startIcon={<RequestQuoteIcon />}
                         >
@@ -49,10 +49,10 @@ function OpcionesComponent() {
                             }}
                             component="label"
                             role={undefined}
-                            variant="contained"
+                            variant="outlined"
                             fullWidth
                             size="large"
-                            className="boton-seleccionar-yellow animate__animated animate__zoomIn animate__delay-1s"
+                            className="boton-seleccionar-x animate__animated animate__zoomIn animate__delay-1s"
                             color="inherit"
                             startIcon={<InsertInvitationIcon />}
                         >
@@ -70,10 +70,10 @@ function OpcionesComponent() {
                             }}
                             component="label"
                             role={undefined}
-                            variant="contained"
+                            variant="outlined"
                             fullWidth
                             size="large"
-                            className="boton-seleccionar-green animate__animated animate__zoomIn animate__delay-1s"
+                            className="boton-seleccionar-x animate__animated animate__zoomIn animate__delay-1s"
                             color="inherit"
                             startIcon={<PsychologyAltIcon />}
                         >

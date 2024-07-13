@@ -24,13 +24,16 @@ body {
     color: #ffffff;
     padding: 5px;
 }
+
 .footer-title-list {
     background: none;
     font-size: medium;
 }
+
 .footer-icon-color {
     color: #465f7d;
 }
+
 .footer-avatar-color {
     background-color: #ffffff;
 }
@@ -76,15 +79,17 @@ body {
 }
 
 /* Boton Seleciones */
-.boton-seleccionar-red {
-    background-color: #df5252;
+.boton-seleccionar-x {
+    color: #2b3e4d;
+    border-color: #2b3e4d;
+    border-width: 2px;
 }
 
-.boton-seleccionar-yellow {
-    background-color: #ecb135;
+.boton-seleccionar-x:hover {
+    color: #fff;
+    border-color: #e05050;
+    background-color: #e05050;
 }
 
-.boton-seleccionar-green {
-    background-color: #badf52;
-}
+
 /* Chips Alertados */
