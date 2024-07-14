@@ -10,14 +10,24 @@ import { Alert, AlertTitle, Card, CardContent, Grid } from '@mui/material';
 import { useState } from 'react';
 import Step1Component from "../pago/Step1Component";
 import Step2Component from "../pago/Step2Component";
+import Step3Component from "../pago/Step3Component";
 
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
+const paypalData = {
+    "client-id": "AXZrVfrjGWMXdsTCV55EUOqLnQY6r_RMyshUrNNlvIV4Mq4JZm8D6jyzLHkq8BezfCFVNhHkT8MaKwmn",
+    currency: "MXN",
+    locale: "es_MX", // Configura el idioma a español y la región a México
+    intent: "capture",
+};
 
 function StepperPagoComponent() {
     const steps = ['Verificar datos', 'Seleccionar montos', 'Pagar'];
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
 
-    
+    const [monto, setMonto] = useState(0);
+
     const id_propiedad = 1;
 
     const isStepSkipped = (step) => {
@@ -82,14 +92,18 @@ function StepperPagoComponent() {
                                     </Typography>
                                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                         <Box sx={{ flex: '1 1 auto' }} />
-                                        <Button  onClick={handleReset}>Reset</Button>
+                                        <Button onClick={handleReset}>Reset</Button>
                                     </Box>
                                 </>
                             ) : (
                                 <>
 
                                     {activeStep === 0 && <Step1Component id={id_propiedad} />}
-                                    {activeStep === 1 && <Step2Component id={id_propiedad} />}
+                                    {activeStep === 1 && <Step2Component id={id_propiedad} setMonto={setMonto} />}
+                                    {activeStep === 2 &&
+                                        (<PayPalScriptProvider options={paypalData}>
+                                            <Step3Component id={id_propiedad} monto={monto} />
+                                        </PayPalScriptProvider>)}
 
                                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                         <Button
