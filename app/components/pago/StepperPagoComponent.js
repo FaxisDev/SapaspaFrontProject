@@ -26,7 +26,8 @@ function StepperPagoComponent() {
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
 
-    const [monto, setMonto] = useState(0);
+    const [botonSiguienteBloqueado, setBotonSiguienteBloqueado] = useState(false);
+    const [botonAtrasBloqueado, setBotonAtrasBloqueado] = useState(false);
 
     const id_propiedad = 1;
 
@@ -99,16 +100,16 @@ function StepperPagoComponent() {
                                 <>
 
                                     {activeStep === 0 && <Step1Component id={id_propiedad} />}
-                                    {activeStep === 1 && <Step2Component id={id_propiedad} setMonto={setMonto} />}
+                                    {activeStep === 1 && <Step2Component id={id_propiedad} setBotonSiguienteBloqueado={setBotonSiguienteBloqueado} />}
                                     {activeStep === 2 &&
                                         (<PayPalScriptProvider options={paypalData}>
-                                            <Step3Component id={id_propiedad} monto={monto} />
+                                            <Step3Component id={id_propiedad} setBotonAtrasBloqueado={setBotonAtrasBloqueado} setBotonSiguienteBloqueado={setBotonSiguienteBloqueado} />
                                         </PayPalScriptProvider>)}
 
                                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                         <Button
                                             size={"medium"} variant="outlined" color="warning"
-                                            disabled={activeStep === 0}
+                                            disabled={activeStep === 0 || botonAtrasBloqueado}
                                             onClick={handleBack}
                                             sx={{ mr: 1 }}
                                         >
@@ -116,7 +117,7 @@ function StepperPagoComponent() {
                                         </Button>
                                         <Box sx={{ flex: '1 1 auto' }} />
 
-                                        <Button onClick={handleNext} size={"medium"} variant="outlined" color="primary">
+                                        <Button onClick={handleNext} size={"medium"} variant="outlined" color="primary" disabled={botonSiguienteBloqueado}>
                                             {activeStep === steps.length - 1 ? 'Finalizar proceso' : 'Siguiente'}
                                         </Button>
                                     </Box>

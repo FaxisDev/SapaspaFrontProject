@@ -10,6 +10,8 @@ const PagoProvider = ({ children }) => {
 
     const [propiedadSeleccionada, setPropiedadSeleccionada] = useState(null);
 
+    const [montoTotal, setMontoTotal] = useState(0);
+
     const seleccionarPropiedad = (propiedad) => {
         setPropiedadSeleccionada(propiedad);
     };
@@ -24,7 +26,7 @@ const PagoProvider = ({ children }) => {
     };
 
     return (
-        <PagoContext.Provider value={{ propiedadSeleccionada, seleccionarPropiedad, limpiarPropiedadSeleccionada, infoStepPago, guardarInfoStepPago }}>
+        <PagoContext.Provider value={{ propiedadSeleccionada, seleccionarPropiedad, limpiarPropiedadSeleccionada, infoStepPago, guardarInfoStepPago, montoTotal, setMontoTotal }}>
             {children}
         </PagoContext.Provider>
     );
