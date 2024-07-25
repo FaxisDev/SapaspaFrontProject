@@ -7,20 +7,20 @@ body {
 
 .barra-menu {
     box-shadow: none;
-    background: url("/img/texturas/prismaticos.png") repeat #009d9f;
+    background-color: #274262;
     color: #fff;
 }
 
 .barra-semi-footer {
     box-shadow: none;
-    background: url("/img/texturas/prismaticos.png") repeat #429ee0;
+    background-color: #37AABB;
     color: #ffffff;
     padding: 5px;
 }
 
 .barra-footer {
     box-shadow: none;
-    background: url("/img/texturas/prismaticos.png") repeat #2b3754;
+    background-color: #1a2838;
     color: #ffffff;
     padding: 5px;
 }
@@ -43,7 +43,13 @@ body {
 }
 
 .boton-menu {
-    color: #c9f5f3;
+    color: #ffffff;
+    box-shadow: none;
+
+}
+
+.boton-menu:hover {
+    background-color: #e05050;
 }
 
 /* Alerts */
@@ -63,8 +69,9 @@ body {
 }
 
 .card-contribuidor {
-    background: url(/img/texturas/dust.png) repeat #263e4a;
     color: #fff;
+    background-color: #192737;
+    border-bottom: 4px solid #e05050;
 }
 
 .card-darkblue {
@@ -80,9 +87,9 @@ body {
 
 /* Boton Seleciones */
 .boton-seleccionar-x {
-    color: #2b3e4d;
-    border-color: #2b3e4d;
-    border-width: 2px;
+    color: #2b484de0;
+    border-width: 0px;
+    background-color: #28aba0;
 }
 
 .boton-seleccionar-x:hover {

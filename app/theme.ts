@@ -1,17 +1,17 @@
 // src/theme.ts
 'use client';
-import { Roboto } from 'next/font/google';
+import { Asap_Condensed } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
+const fuente = Asap_Condensed({
+  weight: [ '400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
 });
 
 const theme = createTheme({
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: fuente.style.fontFamily,
   },
 });
 

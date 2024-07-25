@@ -18,45 +18,30 @@ import {
 } from "@mui/material";
 import useFetch from "../../hooks/useFetch";
 import { BootstrapTooltip } from "../layout/BootstrapTooltip";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DomainIcon from '@mui/icons-material/Domain';
 
-import { useRouter } from "next/navigation";
-import { PagoContext } from "../../context/PagoContext";
-import { useContext } from "react";
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
+//Iconos
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
-export default function PropiedadesComponent({ id }) {
-    const router = useRouter();
+export default function RecibosComponent({ id }) {
 
-    const { seleccionarPropiedad } = useContext(PagoContext);
-
-    const { data, loading } = useFetch("api/propiedades/?contribuyente=" + id, {
+    const { data, loading } = useFetch("api/recibos?contribuyente=" + id, {
         method: "GET",
     });
 
-    const { data: dataTipoPropiedad, loading: loadingTipoPropiedad } = useFetch(
-        "api/tipo-propiedades",
-        { method: "GET" }
-    );
-
-    // Función para obtener el tipo de propiedad por su ID
-    const obtenerTipoPropiedadPorId = (id) => {
-        return !dataTipoPropiedad
-            ? "Indefinido"
-            : dataTipoPropiedad.find((tipo) => tipo.id === id).tipo;
-    };
-
     const columns = [
-        { id: "id", label: "ID", align: "center" },
-        { id: "tipo_propiedad", label: "Tipo de propiedad", align: "center" },
-        { id: "ubicacion", label: "Ubicacion", align: "center" },
-        { id: "estatus", label: "Estatus", align: "center" },
+        { id: "id_recibo", label: "ID de recibo", align: "center" },
+        { id: "id_propiedad", label: "ID de propiedad", align: "center" },
+        { id: "ubicacion", label: "Fecha de recibo", align: "center" },
         { id: "opciones", label: "Opciones", align: "center" },
     ];
 
-    const handleOnClickSelecionarPropiedad = (id) => {
-        seleccionarPropiedad(id);
-        router.push("/pago");
+    const handleOnClickDescargarPDF = (id_recibo, id_contribuyente) => {
+        window.open("http://127.0.0.1:8000/pdf/recibo/" + id_recibo + "/" + id_contribuyente + "/", '_blank');
     };
 
     return (
@@ -79,10 +64,8 @@ export default function PropiedadesComponent({ id }) {
                     {data.length === 0 ? (
                         <CardContent>
                             <Alert severity="warning">
-                                <AlertTitle>Registros de Propiedad no Encontrado </AlertTitle>
-                                No se ha encontrado registro de propiedad asociado a este
-                                contribuyente. Por favor, acércate a SAPASPA para completar el
-                                registro y los pagos correspondientes.
+                                <AlertTitle>¡Sin Recibos! </AlertTitle>
+                                Si tienes pagos generados, aqui apareceran para poder ser descargados.
                             </Alert>
                         </CardContent>
                     ) : (
@@ -107,49 +90,42 @@ export default function PropiedadesComponent({ id }) {
                                             <TableCell align="center">
                                                 <Chip
                                                     variant="outlined"
-                                                    color="primary"
+                                                    color="warning"
                                                     sx={{ borderRadius: "4px" }}
                                                     label={row.id}
+                                                    icon={<ReceiptIcon />}
+                                                />
+                                            </TableCell>
+
+                                            <TableCell align="center" component="th" scope="row">
+
+                                                <Chip
+                                                    variant="outlined"
+                                                    color="primary"
+                                                    sx={{ borderRadius: "4px" }}
+                                                    label={row.propiedad}
                                                     icon={<DomainIcon />}
                                                 />
                                             </TableCell>
                                             <TableCell align="center">
-                                                {loadingTipoPropiedad ? (
-                                                    <CardContent>
-                                                        <Grid
-                                                            container
-                                                            justifyContent="center"
-                                                            alignItems="center"
-                                                            padding={1}
-                                                        >
-                                                            <CircularProgress color="inherit" />
-                                                        </Grid>
-                                                    </CardContent>
-                                                ) : (
-                                                    obtenerTipoPropiedadPorId(row.contribuyente)
-                                                )}
-                                            </TableCell>
-                                            <TableCell align="center" component="th" scope="row">
-                                                {row.entre_calles}
-                                            </TableCell>
-                                            <TableCell align="center">
-                                                <Chip icon={<CheckCircleIcon />} label={"Al dia"} />
+                                                <Chip icon={<CalendarTodayIcon />} label={row.fecha_creacion ? format(row.fecha_creacion, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: es }) : row.fecha_creacion} />
                                             </TableCell>
                                             <TableCell align="center">
                                                 <BootstrapTooltip
                                                     key={row.id}
-                                                    title="Pagar servicio de agua"
+                                                    title={"Descargar recibo PDF"}
                                                     placement="right"
                                                 >
                                                     <Button
                                                         key={row.id}
                                                         variant="outlined"
-                                                        color="primary"
+                                                        color="error"
+                                                        startIcon={<PictureAsPdfIcon />}
                                                         onClick={() =>
-                                                            handleOnClickSelecionarPropiedad(row.id)
+                                                            handleOnClickDescargarPDF(row.id, id)
                                                         }
                                                     >
-                                                        Pagar
+                                                        Descargar
                                                     </Button>
                                                 </BootstrapTooltip>
                                             </TableCell>
