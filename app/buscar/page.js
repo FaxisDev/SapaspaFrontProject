@@ -22,7 +22,7 @@ export default function Page() {
     const [formularioData, setFormularioData, limpiarFormularioData] = useFormData({
         folio_unico: '',
         curp: '',
-        numero_telefonico: '',
+        telefono: '',
     });
 
     const [seleccionarTab, setSeleccionarTab] = useState(0);
@@ -190,13 +190,13 @@ export default function Page() {
                                                         InputProps={{
                                                             endAdornment: <SmartphoneIcon />,
                                                         }}
-                                                        name="numero_telefonico"
+                                                        name="telefono"
                                                         label="Número Telefónico"
                                                         variant="outlined"
-                                                        value={formularioData.numero_telefonico}
+                                                        value={formularioData.telefono}
                                                         onChange={setFormularioData}
                                                     />
-                                                    <FormHelperText id="numero_telefonico">
+                                                    <FormHelperText id="telefono">
                                                         Es el número telefónico o de celular que proporcionaste al registrarte en Sapaspa.
                                                     </FormHelperText>
 
