@@ -23,7 +23,7 @@ function page() {
 
     return (
         <>
-            {propiedadSeleccionada ?
+            {!propiedadSeleccionada ?
                 <NoDisponibleComponent />
                 :
                 <Container>
@@ -34,7 +34,7 @@ function page() {
                         </Grid>
                         <Grid item xs={12} md={8}>
 
-                            <StepperPagoComponent />
+                            <StepperPagoComponent id_propiedad={propiedadSeleccionada} />
                         </Grid>
                     </Grid>
                 </Container>

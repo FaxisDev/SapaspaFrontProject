@@ -1,6 +1,6 @@
 'use client'
 
-import { Avatar, AvatarGroup, Box, Card, CardContent, CircularProgress, Container, Grid, List, ListItem, ListItemText } from "@mui/material"
+import { Avatar, AvatarGroup, Box, CircularProgress, Container, Grid, List, ListItem, ListItemText } from "@mui/material"
 import useFetch from "../../hooks/useFetch";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const PerfilComponent = ({ id }) => {
@@ -27,9 +27,6 @@ export const PerfilComponent = ({ id }) => {
                                     </Box>
 
                                     :
-
-
-
 
                                     <Box>
                                         <Grid container alignItems="center">

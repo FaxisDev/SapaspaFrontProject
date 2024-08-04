@@ -1,7 +1,12 @@
-import { Alert, AlertTitle, Box, CircularProgress, Grid } from '@mui/material'
+import { Alert, AlertTitle, Box, Button, CircularProgress, Grid } from '@mui/material'
 import React from 'react'
 
 export default function TransaccionExitosaComponent({ loading, datosRecibidos }) {
+
+    const handleOnClickDescargarPDF = (id_recibo, id_contribuyente) => {
+        window.open("http://127.0.0.1:8000/pdf/recibo/" + id_recibo + "/" + id_contribuyente + "/", '_blank');
+    };
+
 
     return (
         <Box>
@@ -27,6 +32,10 @@ export default function TransaccionExitosaComponent({ loading, datosRecibidos })
                                        {datosRecibidos.message}
                                     </Alert>
 
+                                </Grid>
+
+                                <Grid item xs={12}>
+                                    <Button variant='outlined' color='primary' onClick={() => handleOnClickDescargarPDF(datosRecibidos.id_recibo, datosRecibidos.id_contribuyente)} fullWidth size='medium'>Descargar Recibo PDF</Button>
                                 </Grid>
                             </Grid>
                         </Box>

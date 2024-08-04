@@ -6,13 +6,16 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Alert, AlertTitle, Card, CardContent, Grid } from '@mui/material';
-import { useState } from 'react';
+import { Card, CardContent, Grid, Stack } from '@mui/material';
+import { useEffect, useState } from 'react';
 import Step1Component from "../pago/Step1Component";
 import Step2Component from "../pago/Step2Component";
 import Step3Component from "../pago/Step3Component";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import ReloadingComponent from '../layout/ReloadingComponent';
+
+import { useRouter } from 'next/navigation';
 
 const paypalData = {
     "client-id": "AXZrVfrjGWMXdsTCV55EUOqLnQY6r_RMyshUrNNlvIV4Mq4JZm8D6jyzLHkq8BezfCFVNhHkT8MaKwmn",
@@ -21,7 +24,10 @@ const paypalData = {
     intent: "capture",
 };
 
-function StepperPagoComponent() {
+function StepperPagoComponent({ id_propiedad }) {
+
+    const router = useRouter();
+
     const steps = ['Verificar datos', 'Seleccionar montos', 'Pagar'];
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
@@ -29,7 +35,15 @@ function StepperPagoComponent() {
     const [botonSiguienteBloqueado, setBotonSiguienteBloqueado] = useState(false);
     const [botonAtrasBloqueado, setBotonAtrasBloqueado] = useState(false);
 
-    const id_propiedad = 1;
+    const [mounted, setMounted] = useState(false);
+
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return (<ReloadingComponent />);
+
 
     const isStepSkipped = (step) => {
         return skipped.has(step);
@@ -50,8 +64,12 @@ function StepperPagoComponent() {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
+    const handleOnContribuyente = () => {
+        router.push('/contribuyente');
+    };
+
+    const handleOnPrincipal = () => {
+        router.push('/');
     };
 
     return (
@@ -88,12 +106,20 @@ function StepperPagoComponent() {
 
                             {activeStep === steps.length ? (
                                 <>
-                                    <Typography sx={{ m: 1 }}>
-                                        All steps completed - you&apos;re finished
-                                    </Typography>
-                                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                                        <Box sx={{ flex: '1 1 auto' }} />
-                                        <Button onClick={handleReset}>Reset</Button>
+                                    <Box>
+                                        <Typography align='center' gutterBottom variant="subtitle2" padding={1}>¡Todo está al día! Aquí tienes algunas opciones para explorar:</Typography>
+
+                                        <Stack spacing={1} >
+
+                                            <Button fullWidth onClick={handleOnContribuyente} size={"medium"} variant="outlined" color="primary">
+                                                Ir al perfil de contribuyente
+                                            </Button>
+                                            <Button fullWidth onClick={handleOnPrincipal} size={"medium"} variant="outlined" color="warning">
+                                                Ir a la pagina principal
+                                            </Button>
+                                        </Stack>
+
+
                                     </Box>
                                 </>
                             ) : (
