@@ -15,7 +15,7 @@ function OpcionesComponent() {
         <Container>
             <Grid container spacing={1} alignContent={"center"} alignItems={"center"} alignSelf={"center"} mb={2}>
 
-                <Grid xs={12} item md={4}>
+                <Grid xs={12} item md={6}>
 
                     <BootstrapTooltip title="Ir a Pagar en Linea" placement="top">
 
@@ -39,9 +39,9 @@ function OpcionesComponent() {
 
 
                 </Grid>
-                <Grid xs={12} item md={4}>
+{/*                 <Grid xs={12} item md={4}>
 
-                    <BootstrapTooltip title="Ir a Agendar Cita" placement="top">
+                    <BootstrapTooltip title="Disponible en el futuro" placement="top">
 
                         <Button
                             onClick={() => {
@@ -55,13 +55,14 @@ function OpcionesComponent() {
                             className="boton-seleccionar-x animate__animated animate__zoomIn animate__delay-1s"
                             color="inherit"
                             startIcon={<InsertInvitationIcon />}
+                            disabled={true}
                         >
                             Agendar Cita
                         </Button>
                     </BootstrapTooltip>
 
-                </Grid>
-                <Grid xs={12} item md={4}>
+                </Grid> */}
+                <Grid xs={12} item md={6}>
                     <BootstrapTooltip title="Ir a ¿Quienes somos?" placement="top">
 
                         <Button
