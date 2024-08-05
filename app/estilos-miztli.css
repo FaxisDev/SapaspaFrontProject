@@ -68,11 +68,7 @@ body {
     color: #ffffff;
 }
 
-.card-contribuidor {
-    color: #fff;
-    background-color: #192737;
-    border-bottom: 4px solid #e05050;
-}
+
 
 .card-darkblue {
     background-color: #2b3e4d;
@@ -99,4 +95,47 @@ body {
 }
 
 
-/* Chips Alertados */
+/* Perfil de contribuyente */
+.card-contribuidor {
+    margin-top: 24px; /* Ajuste para el margen superior */
+}
+
+.perfil-paper {
+    padding: 24px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil para un efecto flotante */
+    text-align: center; /* Centrado de texto */
+
+    background-color: #cdd5dd;
+    opacity: 0.8;
+    background-image:  linear-gradient(#aabaca 1px, transparent 1px), linear-gradient(to right, #aabaca 1px, #cdd5dd 1px);
+    background-size: 20px 20px;
+}
+
+.perfil-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Ajuste para la altura del contenedor de carga */
+}
+
+.perfil-avatar {
+    width: 120px;
+    height: 120px;
+    background-color: #285593; /* Color de fondo del Avatar */
+    color: #ffffff; /* Color del icono */
+    border: 3px solid #ffffff; /* Borde blanco para destacar el avatar */
+}
+
+.perfil-name {
+    color: #333d48; /* Color del texto del nombre */
+    font-weight: bold; /* Negrita */
+    margin-top: 16px; /* Espaciado superior para separar del avatar */
+    margin-bottom: 8px; /* Espaciado inferior para separar del correo electrónico */
+}
+
+.perfil-email {
+    color: #16305a; /* Color del texto del correo electrónico */
+    font-weight: 300; /* Peso de fuente normal */
+}

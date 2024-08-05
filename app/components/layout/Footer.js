@@ -206,7 +206,7 @@ export default function Footer() {
 
                             <Box>
 
-                                <Divider />
+                               
                                 <Typography gutterBottom align="center" variant="body2" component="div">
                                     Sapaspa {fecha} -  Agua Potable y Alcantarillado de San Pablo Atlalzalpan
                                 </Typography>

@@ -134,175 +134,179 @@ export default function Page() {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <Card elevation={2} className="animate__animated animate__zoomIn">
+                        <Card elevation={1} className="animate__animated animate__zoomIn">
 
 
-                            <Alert severity="info" variant="filled">
-                                <AlertTitle>¡Muy importante!</AlertTitle>
-                                Este formulario te ayuda a encontrar la información del titular para pagar el servicio de agua. Puedes buscar utilizando el número de folio único, el CURP o el número telefónico del titular. Facilita tu pago y gestiona tus cuentas de forma rápida y sencilla.
-                            </Alert>
+                            <CardContent>
+                                <Alert severity="info" variant="outlined">
+                                    <AlertTitle>¡Muy importante!</AlertTitle>
+                                    Este formulario te ayuda a encontrar la información del titular para pagar el servicio de agua. Puedes buscar utilizando el número de folio único, el CURP o el número telefónico del titular. Facilita tu pago y gestiona tus cuentas de forma rápida y sencilla.
+                                </Alert>
 
+                            </CardContent>
                         </Card>
                     </Grid>
                 </Grid>
-                <Grid container spacing={2} mt={2}>
+                <Grid container spacing={2} mt={1}>
                     <Grid item xs={12} md={7}>
 
-                        <Card className="animate__animated animate__zoomIn" elevation={5}>
+                        <Card elevation={5}>
 
-                            <Box sx={{ bgcolor: 'background.paper' }}>
-                                <Tabs value={seleccionarTab} onChange={handleChange} centered variant="fullWidth">
-                                    <Tab label="Metodo 1" />
-                                    <Tab label="Metodo 2" />
-                                </Tabs>
+                            <Tabs value={seleccionarTab} onChange={handleChange} centered variant="fullWidth">
+                                <Tab label="Metodo 1" />
+                                <Tab label="Metodo 2" />
+                            </Tabs>
+                            <CardContent>
+                                <Box>
 
-                                <CardHeader title="Formulario" titleTypographyProps={{ align: 'center' }} />
+                                    <CardHeader title="Formulario" titleTypographyProps={{ align: 'center' }} />
 
-                                <Alert severity="success">Todos los campos son obligatorios.</Alert>
+                                    <Alert severity="info" variant="outlined">Todos los campos son obligatorios.</Alert>
 
 
-                                <TabPanel value={seleccionarTab} index={0}>
-                                    <form onSubmit={handleSubmit}>
-                                        <CardContent>
-                                            <Grid container spacing={2}>
-                                                <Grid item xs={12}>
-                                                    <TextField
-                                                        fullWidth
+                                    <TabPanel value={seleccionarTab} index={0}>
+                                        <form onSubmit={handleSubmit}>
+                                            <CardContent>
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={12}>
+                                                        <TextField
+                                                            fullWidth
 
-                                                        name="folio_unico"
-                                                        label="Folio Único"
-                                                        variant="outlined"
-                                                        value={formularioData.folio_unico}
-                                                        onChange={setFormularioData}
-                                                        InputProps={{
-                                                            endAdornment: <ArticleIcon />,
-                                                        }}
-                                                    />
-                                                    <FormHelperText id="folio_unico">
-                                                        Por lo general, se encuentra en la parte superior de tu recibo de agua más reciente.
-                                                    </FormHelperText>
+                                                            name="folio_unico"
+                                                            label="Folio Único"
+                                                            variant="outlined"
+                                                            value={formularioData.folio_unico}
+                                                            onChange={setFormularioData}
+                                                            InputProps={{
+                                                                endAdornment: <ArticleIcon />,
+                                                            }}
+                                                        />
+                                                        <FormHelperText id="folio_unico">
+                                                            Por lo general, se encuentra en la parte superior de tu recibo de agua más reciente.
+                                                        </FormHelperText>
+
+                                                    </Grid>
+
+                                                    <Grid item xs={12}>
+                                                        <TextField
+                                                            fullWidth
+                                                            InputProps={{
+                                                                endAdornment: <SmartphoneIcon />,
+                                                            }}
+                                                            name="telefono"
+                                                            label="Número Telefónico"
+                                                            variant="outlined"
+                                                            value={formularioData.telefono}
+                                                            onChange={setFormularioData}
+                                                        />
+                                                        <FormHelperText id="telefono">
+                                                            Es el número telefónico o de celular que proporcionaste al registrarte en Sapaspa.
+                                                        </FormHelperText>
+
+                                                    </Grid>
 
                                                 </Grid>
 
-                                                <Grid item xs={12}>
-                                                    <TextField
-                                                        fullWidth
-                                                        InputProps={{
-                                                            endAdornment: <SmartphoneIcon />,
-                                                        }}
-                                                        name="telefono"
-                                                        label="Número Telefónico"
-                                                        variant="outlined"
-                                                        value={formularioData.telefono}
-                                                        onChange={setFormularioData}
-                                                    />
-                                                    <FormHelperText id="telefono">
-                                                        Es el número telefónico o de celular que proporcionaste al registrarte en Sapaspa.
-                                                    </FormHelperText>
+                                            </CardContent>
+                                            <CardActions>
+
+                                                <Grid container spacing={2}>
+
+                                                    <Grid item xs={12}>
+                                                        <Stack direction="row" justifyContent="flex-end"
+                                                            alignItems="center" spacing={1}>
+                                                            <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="outlined" color="inherit" className="boton-limpiar animate__animated animate__delay-1s animate__zoomIn"  onClick={limpiarFormularioData} >
+                                                                Limpiar
+                                                            </Button>
+
+
+                                                            <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} className="animate__animated animate__delay-2s animate__zoomIn" variant="outlined" color="primary" type="submit" disabled={loading}>
+                                                                {loading ? 'Buscando...' : 'Buscar'}
+                                                            </Button>
+
+
+
+                                                        </Stack>
+                                                    </Grid>
+                                                </Grid>
+                                            </CardActions>
+
+                                        </form>
+                                    </TabPanel>
+                                    <TabPanel value={seleccionarTab} index={1}>
+                                        <form onSubmit={handleSubmit}>
+                                            <CardContent>
+                                                <Grid container spacing={2}>
+
+                                                    <Grid item xs={12}>
+                                                        <TextField
+                                                            fullWidth
+                                                            InputProps={{
+                                                                endAdornment: <PermIdentityIcon />,
+                                                            }}
+                                                            name="curp"
+                                                            label="CURP"
+                                                            variant="outlined"
+                                                            value={formularioData.curp}
+                                                            onChange={setFormularioData}
+                                                        />
+                                                        <FormHelperText id="curp">
+                                                            Puedes encontrarlo en tu acta de nacimiento o consultar en línea a través del sitio web oficial del gobierno mexicano.
+                                                        </FormHelperText>
+                                                    </Grid>
+
 
                                                 </Grid>
 
-                                            </Grid>
+                                            </CardContent>
 
-                                        </CardContent>
-                                        <CardActions>
+                                            <CardActions>
 
-                                            <Grid container spacing={2}>
+                                                <Grid container spacing={2}>
 
-                                                <Grid item xs={12}>
-                                                    <Stack direction="row" justifyContent="flex-end"
-                                                        alignItems="center" spacing={1}>
-                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="outlined" color="inherit" className="boton-limpiar" onClick={limpiarFormularioData} >
-                                                            Limpiar
-                                                        </Button>
-
-
-                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="outlined" color="primary" type="submit" disabled={loading}>
-                                                            {loading ? 'Buscando...' : 'Buscar'}
-                                                        </Button>
+                                                    <Grid item xs={12}>
+                                                        <Stack direction="row" justifyContent="flex-end"
+                                                            alignItems="center" spacing={1}>
+                                                            <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="outlined" color="inherit" className="boton-limpiar" onClick={limpiarFormularioData} >
+                                                                Limpiar
+                                                            </Button>
 
 
+                                                            <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="outlined" color="primary" type="submit" disabled={loading}>
+                                                                {loading ? 'Buscando...' : 'Buscar'}
+                                                            </Button>
 
-                                                    </Stack>
+                                                        </Stack>
+                                                    </Grid>
                                                 </Grid>
-                                            </Grid>
-                                        </CardActions>
+                                            </CardActions>
 
-                                    </form>
-                                </TabPanel>
-                                <TabPanel value={seleccionarTab} index={1}>
-                                    <form onSubmit={handleSubmit}>
-                                        <CardContent>
-                                            <Grid container spacing={2}>
+                                        </form>
+                                    </TabPanel>
 
-                                                <Grid item xs={12}>
-                                                    <TextField
-                                                        fullWidth
-                                                        InputProps={{
-                                                            endAdornment: <PermIdentityIcon />,
-                                                        }}
-                                                        name="curp"
-                                                        label="CURP"
-                                                        variant="outlined"
-                                                        value={formularioData.curp}
-                                                        onChange={setFormularioData}
-                                                    />
-                                                    <FormHelperText id="curp">
-                                                        Puedes encontrarlo en tu acta de nacimiento o consultar en línea a través del sitio web oficial del gobierno mexicano.
-                                                    </FormHelperText>
-                                                </Grid>
+                                </Box>
 
+                            </CardContent>
 
-                                            </Grid>
-
-                                        </CardContent>
-
-                                        <CardActions>
-
-                                            <Grid container spacing={2}>
-
-                                                <Grid item xs={12}>
-                                                    <Stack direction="row" justifyContent="flex-end"
-                                                        alignItems="center" spacing={1}>
-                                                        <Button endIcon={<CleaningServicesIcon />} size={"medium"} variant="outlined" color="inherit" className="boton-limpiar" onClick={limpiarFormularioData} >
-                                                            Limpiar
-                                                        </Button>
-
-
-                                                        <Button endIcon={loading ? <CircularProgress size={24} /> : <SearchIcon />} size={"medium"} variant="outlined" color="primary" type="submit" disabled={loading}>
-                                                            {loading ? 'Buscando...' : 'Buscar'}
-                                                        </Button>
-
-
-
-                                                    </Stack>
-                                                </Grid>
-                                            </Grid>
-                                        </CardActions>
-
-                                    </form>
-                                </TabPanel>
-
-                            </Box>
-
-                            <CardMedia
-                                title="Informatica"
-
-                                component="img"
-                                height="115"
-                                image="/img/visual/origami/informatica.jpg"
-                                alt="Informatica"
-                                className="animate__animated animate__fadeIn  animate__delay-1s"
-                            />
 
                         </Card>
 
                     </Grid>
                     <Grid item xs={12} md={5}>
 
-                        <Card className="animate__animated animate__zoomIn">
+                        <Card className="animate__animated animate__fadeIn">
+                            <CardMedia
+                                title="Busqeda"
 
-                            <List subheader={<ListSubheader>Para tener en cuenta:</ListSubheader>} >
+                                component="img"
+                                height="105"
+                                image="/img/visual/origami/informatica.jpg"
+                                alt="Informatica"
+                                className="animate__animated animate__fadeIn  animate__delay-1s"
+                            />
+
+                          <CardContent>
+                          <List subheader={<ListSubheader>Para tener en cuenta:</ListSubheader>} >
                                 <ListItem disablePadding>
                                     <ListItemButton>
                                         <ListItemIcon>
@@ -349,6 +353,7 @@ export default function Page() {
 
                             </List>
 
+                          </CardContent>
 
 
                         </Card>

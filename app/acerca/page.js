@@ -1,5 +1,5 @@
 'use client'
-import { Container, Typography, Box, Grid, Card, CardContent, CardMedia, Tabs, Tab } from '@mui/material';
+import { Container, Typography, Box, Grid, Card, CardContent, CardMedia, Tabs, Tab, Avatar } from '@mui/material';
 import { useState } from 'react';
 
 function Page() {
@@ -10,10 +10,29 @@ function Page() {
         setTabValue(newValue);
     };
 
+    const members = [
+        {
+            name: "Nombre del Miembro",
+            title: "Presidente",
+            description: "Lidera el comité con dedicación y compromiso para asegurar el acceso a servicios esenciales de agua.",
+            image: "https://franchisematch.com/wp-content/uploads/2015/02/john-doe.jpg"
+        },
+        {
+            name: "Nombre del Miembro",
+            title: "Director Técnico",
+            description: "Encargado de la supervisión técnica y operativa de los sistemas de agua y alcantarillado.",
+            image: "https://demo.solwininfotech.com/wordpress/justica/wp-content/uploads/2016/07/Attorneys-5.png"
+        },
+        {
+            name: "Nombre del Miembro",
+            title: "Responsable de Administración",
+            description: "Gestiona los recursos y garantiza la transparencia en la administración del comité.",
+            image: "https://salondesmaires-gard.com/wp-content/uploads/2015/04/speaker-1-v2.jpg"
+        }
+    ];
+
     return (
-
         <Box>
-
             <Box sx={{ textAlign: 'center', p: 6, mt: -3, backgroundColor: "#fff" }}>
                 <Typography variant="h4" component="h1" gutterBottom>
                     ¿Quiénes Somos?
@@ -24,16 +43,16 @@ function Page() {
             </Box>
 
             <Container>
-                <Card sx={{ my: 2}} elevation={4} className="card-darkblue animate__animated animate__flipInX" >
+                <Card sx={{ my: 2 }} elevation={4} className="card-darkblue animate__animated animate__flipInX">
                     <Box>
-                        <Tabs value={tabValue} onChange={handleTabChange} centered textColor='inherit'> 
+                        <Tabs value={tabValue} onChange={handleTabChange} centered textColor='inherit'>
                             <Tab label="Misión" />
                             <Tab label="Visión" />
                             <Tab label="Valores" />
                         </Tabs>
                     </Box>
-
                 </Card>
+
                 <Grid container spacing={3} justifyContent="center" mb={4}>
                     {tabValue === 0 && (
                         <Grid item xs={12} sm={8} md={6}>
@@ -84,57 +103,28 @@ function Page() {
                         Nuestro Equipo
                     </Typography>
                     <Grid container spacing={4} justifyContent="center">
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card>
-                                <CardMedia
-                                    component="img"
-                                    height="140"
-                                    image="https://franchisematch.com/wp-content/uploads/2015/02/john-doe.jpg"
-                                    alt="Nombre del Miembro"
-                                />
-                                <CardContent>
-                                    <Typography variant="h6">Nombre del Miembro</Typography>
-                                    <Typography gutterBottom variant="subtitle2" component="div" padding={2}>Presidente</Typography>
-                                    <Typography variant="body2" color="textSecondary">
-                                        Lidera el comité con dedicación y compromiso para asegurar el acceso a servicios esenciales de agua.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card>
-                                <CardMedia
-                                    component="img"
-                                    height="140"
-                                    image="https://demo.solwininfotech.com/wordpress/justica/wp-content/uploads/2016/07/Attorneys-5.png"
-                                    alt="Nombre del Miembro"
-                                />
-                                <CardContent>
-                                    <Typography variant="h6">Nombre del Miembro</Typography>
-                                    <Typography gutterBottom variant="subtitle2" component="div" padding={2}>Director Técnico</Typography>
-                                    <Typography variant="body2" color={"textSecondary"}>
-                                        Encargado de la supervisión técnica y operativa de los sistemas de agua y alcantarillado.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card>
-                                <CardMedia
-                                    component="img"
-                                    height="140"
-                                    image="https://salondesmaires-gard.com/wp-content/uploads/2015/04/speaker-1-v2.jpg"
-                                    alt="Nombre del Miembro"
-                                />
-                                <CardContent>
-                                    <Typography variant="h6">Nombre del Miembro</Typography>
-                                    <Typography gutterBottom variant="subtitle2" component="div" padding={2}>Responsable de Administración</Typography>
-                                    <Typography variant="body2" color="textSecondary">
-                                        Gestiona los recursos y garantiza la transparencia en la administración del comité.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
+                        {members.map((member, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Box display="flex" justifyContent="center" mb={-3}>
+                                    <Avatar 
+                                        alt={member.name} 
+                                        src={member.image} 
+                                        sx={{ width: 100, height: 100, border: '3px solid white' }} 
+                                    />
+                                </Box>
+                                <Card sx={{ pt: 4, mt: 4 }}>
+                                    <CardContent>
+                                        <Typography variant="h6" align="center">{member.name}</Typography>
+                                        <Typography gutterBottom variant="subtitle2" align="center" component="div" padding={2}>
+                                            {member.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary" align="center">
+                                            {member.description}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
                     </Grid>
                 </Box>
             </Container>
