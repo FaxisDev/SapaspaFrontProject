@@ -49,7 +49,7 @@ export default function PropiedadesComponent({ id }) {
 
     const statusMap = {
         'Al día': { color: '#6ABF9B', icon: <CheckCircleIcon /> },
-        'Pendiente': { color: '#D1A64E', icon: <WarningIcon /> },
+        'Pendiente': { color: '#d77d57', icon: <WarningIcon /> },
         'Atrasado': { color: '#CC5649', icon: <DangerousIcon /> }
     };
 
