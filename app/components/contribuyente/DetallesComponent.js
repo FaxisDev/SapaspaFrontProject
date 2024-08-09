@@ -14,7 +14,7 @@ export const DetallesComponent = ({ id }) => {
 
     const cardData = [
         { icon: <ArticleIcon />, label: "Folio único", value: data?.folio_unico, color: "#EBCF8D", textColor: "#D1A64E" },
-        { icon: <BadgeIcon />, label: "Curp", value: data?.curp, color: "#EBB88D", textColor: "#D1A64E" },
+        { icon: <BadgeIcon />, label: "Curp", value: data?.curp, color: "#CC5649", textColor: "#80362E" },
         { icon: <SmartphoneIcon />, label: "Teléfono", value: data?.telefono, color: "#8DDCEB", textColor: "#5DACD6" },
         { icon: <CalendarMonthIcon />, label: "Fecha de Alta", value: data?.fecha_creacion ? format(data.fecha_creacion, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: es }) : data?.fecha_creacion, color: "#8DEBC6", textColor: "#6ABF9B" },
     ];
