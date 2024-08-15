@@ -1,8 +1,4 @@
-
-
-import { Box, Card, CardContent, CardMedia, Container, Divider, Grid, LinearProgress, Stack, Typography } from "@mui/material"
-
-
+import { Card, CardContent, CardMedia, Divider, Typography } from "@mui/material"
 
 function InfoPagoCardComponent() {
     return (
