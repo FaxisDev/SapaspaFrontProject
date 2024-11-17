@@ -112,7 +112,7 @@ export default function PropiedadesComponent({ id }) {
                                                     </Grid>
                                                 </CardContent>
                                             ) : (
-                                                obtenerTipoPropiedadPorId(row.contribuyente)
+                                                obtenerTipoPropiedadPorId(row.tipo_propiedad)
                                             )}
                                         </TableCell>
                                         <TableCell align="center" component="th" scope="row">

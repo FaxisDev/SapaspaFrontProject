@@ -15,7 +15,8 @@ function Step1Component({ id }) {
 
     // Función para obtener el tipo de propiedad por su ID
     const obtenerTipoPropiedadPorId = (id) => {
-        return !dataTipoPropiedad ? 'Indefinido' : dataTipoPropiedad.find(tipo => tipo.id === id).tipo;
+     
+        return !dataTipoPropiedad ? 'Indefinido' : dataTipoPropiedad.find(tipo => tipo.id === id)?.tipo || "Indefinido";
     };
 
 
@@ -40,7 +41,7 @@ function Step1Component({ id }) {
                                 <Alert className='alerta-verde' variant="filled" >
 
                                     <AlertTitle>Verificación de Datos</AlertTitle>
-                                    Antes de pagar, asegúrate de que los datos de la propiedad estén correctos. Si lo están, haz clic en 'Siguiente'. Si no, agenda una cita con Sapaspa.
+                                    Antes de pagar, asegúrate de que los datos de la propiedad estén correctos. Si lo están, haz clic en Siguiente. Si no, agenda una cita con Sapaspa.
 
                                 </Alert>
                             </Grid>
@@ -64,7 +65,7 @@ function Step1Component({ id }) {
                                         </ListItemIcon>
                                         <ListItemText
                                             primary="Tipo de propiedad"
-                                            secondary={obtenerTipoPropiedadPorId(id)}
+                                            secondary={obtenerTipoPropiedadPorId(data.tipo_propiedad)}
                                         />
                                     </ListItem>
 

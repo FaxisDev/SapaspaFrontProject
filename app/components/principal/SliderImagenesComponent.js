@@ -9,10 +9,11 @@ import { useState, useEffect } from 'react';
 import 'animate.css';
 
 const images = [
-    { label: 'San Francisco – Oakland Bay Bridge, United States', imgPath: '/img/visual/ejemplo_6.jpg' },
-    { label: 'Bird', imgPath: '/img/visual/ejemplo_11.jpg' },
-    { label: 'Bali, Indonesia', imgPath: '/img/visual/ejemplo_4.jpg' },
-    { label: 'Goč, Serbia', imgPath: '/img/visual/ejemplo_8.jpg' },
+    { label: '', imgPath: '/img/visual/sapas.jpg' },
+    { label: 'edcee', imgPath: '/img/visual/5.jpg' },
+    { label: '', imgPath: '/img/visual/ejemplo_4.jpg' },
+    { label: '', imgPath: '/img/visual/ejemplo_8.jpg' },
+
 ];
 
 export default function SliderImagenesComponent() {
