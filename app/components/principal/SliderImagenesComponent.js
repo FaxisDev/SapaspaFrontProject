@@ -9,10 +9,15 @@ import { useState, useEffect } from 'react';
 import 'animate.css';
 
 const images = [
-    { label: '', imgPath: '/img/visual/sapas.jpg' },
-    { label: 'edcee', imgPath: '/img/visual/5.jpg' },
-    { label: '', imgPath: '/img/visual/ejemplo_4.jpg' },
+    
+    { label: '', imgPath: '/img/visual/7_n.jpg' },
+    { label: 'edcee', imgPath: '/img/visual/ejemplo_4.jpg' },
+    { label: '', imgPath: '/img/visual/5.jpg' },
     { label: '', imgPath: '/img/visual/ejemplo_8.jpg' },
+    { label: '', imgPath: '/img/visual/ejemplo_9.jpg' },
+    { label: '', imgPath: '/img/visual/ejemplo_10.jpg' },
+    
+    
 
 ];
 

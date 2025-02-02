@@ -12,20 +12,20 @@ function Page() {
 
     const members = [
         {
-            name: "",
+            name: "Lic. Angélica Villegas Palma",
             title: "Presidenta",
             description: "Lidera el comité con dedicación y compromiso para asegurar el acceso a servicios esenciales de agua.",
             image: "https://franchisematch.com/wp-content/uploads/2015/02/john-doe.jpg"
         },
         {
-            name: "Nombre del Miembro",
-            title: "Vice Presidente",
+            name: "Isidro Contreras Rojas",
+            title: "Tesorero",
             description: "Encargado de la supervisión técnica y operativa de los sistemas de agua y alcantarillado.",
             image: "https://demo.solwininfotech.com/wordpress/justica/wp-content/uploads/2016/07/Attorneys-5.png"
         },
         {
-            name: "Esperanza Villegas",
-            title: "Tesorera",
+            name: "Esperanza Villegas Rojas",
+            title: "Consejo de Vigilancia",
             description: "Gestiona los recursos y garantiza la transparencia en la administración del comité.",
             image: "https://salondesmaires-gard.com/wp-content/uploads/2015/04/speaker-1-v2.jpg"
         }

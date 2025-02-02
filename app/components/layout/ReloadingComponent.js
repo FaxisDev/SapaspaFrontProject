@@ -24,7 +24,7 @@ function ReloadingComponent() {
                         <CardContent>
                             <Typography gutterBottom variant="subtitle2" component="div" align="center" padding={2}>
 
-                                ¡Estamos en ello! 🚀 ¡Gracias por aguantar!
+                                ¡Estamos en ello! 🚀 ¡Gracias por esperar!
                             </Typography>
 
                             <Grid container spacing={2}>

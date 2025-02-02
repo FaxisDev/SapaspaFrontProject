@@ -15,10 +15,13 @@ import theme from "./theme";
 import Image from "next/image";
 import { Button, Hidden, Stack } from "@mui/material";
 
+
+//iconos
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import HouseRoundedIcon from "@mui/icons-material/HouseRounded";
 import { BootstrapTooltip } from "./components/layout/BootstrapTooltip";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 
 import Footer from "./components/layout/Footer";
 import Link from "next/link";
@@ -65,6 +68,21 @@ export default function RootLayout({ children }) {
                                                         
                                                     >
                                                         <Hidden mdDown>Principal</Hidden>
+                                                    </Button>
+                                                </Link>
+                                            </BootstrapTooltip>
+
+                                            <BootstrapTooltip title="Historia">
+                                                <Link href="/historia" passHref>
+                                                    <Button
+                                                  tabIndex={-1}
+                                                        variant="text"
+                                                        component="button"
+                                                        className="boton-menu"
+                                                        startIcon={<AutoStoriesIcon />}
+                                                        
+                                                    >
+                                                        <Hidden mdDown>Historia</Hidden>
                                                     </Button>
                                                 </Link>
                                             </BootstrapTooltip>

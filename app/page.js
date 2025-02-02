@@ -38,8 +38,8 @@ export default function Page() {
                                 title="Tarifa Justa y Transparente para Todos"
 
                                 component="img"
-                                height="210"
-                                image="/img/visual/origami/desarrollo-urbano.jpg"
+                                height="200"
+                                image="/img/visual/origami/llave.jpg"
                                 alt="Tarifa Justa y Transparente para Todos"
                                 className="animate__animated animate__fadeIn  animate__delay-1s"
                             />
@@ -95,11 +95,11 @@ export default function Page() {
                         <Card>
 
                             <CardMedia
-                                title="Reciclar y reutilizar el agua"
+                                title="Inaguración del nuevo pozo No 2"
 
                                 component="img"
                                 height="210"
-                                image="/img/visual/origami/reciclar-agua.jpg"
+                                image="/img/visual/origami/pozo.jpg"
                                 alt="Reciclar y reutilizar el agua"
                                 className="animate__animated animate__fadeIn  animate__delay-1s"
                             />
@@ -107,12 +107,12 @@ export default function Page() {
 
                             <CardContent>
                                 <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
-                                    Reciclar y reutilizar el agua
+                                    Inaguración del nuevo pozo No 2
                                 </Typography>
 
                                 <Divider />
                                 <Typography variant="body1" color="text.secondary" padding={2} >
-                                    Considera instalar sistemas de recolección de agua de lluvia para utilizar en el riego de plantas, limpieza exterior o incluso para el inodoro. Además, puedes reutilizar el agua utilizada en el hogar, como la que se usa para lavar frutas y verduras, para regar las plantas.
+                                    Con la inaguración del nuevo pozo No 2 llevaremos el servicio de agua potable a las colonias de el primer cuadro de nuestra comunidad.
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -126,19 +126,19 @@ export default function Page() {
 
                                 component="img"
                                 height="210"
-                                image="/img/visual/origami/medio-ambiente.jpg"
+                                image="/img/visual/origami/Agua-R.jpg"
                                 alt="Cuidado del agua"
                                 className="animate__animated animate__fadeIn  animate__delay-1s"
                             />
 
                             <CardContent>
                                 <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
-                                    Limitar el uso de la manguera
+                                Planta de tratamiento de Aguas Residuales 
                                 </Typography>
 
                                 <Divider />
                                 <Typography variant="body1" color="text.secondary" padding={2} >
-                                    Al lavar el auto o limpiar el exterior de la casa, utiliza una cubeta y una esponja en lugar de una manguera. Esto puede ahorrar una cantidad significativa de agua.
+                                De acuerdo al plan de saneamiento de CAEM la construcción de esta planta es abastecer agua de riego a nuestra comunidad, para potenciar la producción agrícola, impulsar nuestra economía local e  incluso como recarga pasiva de infiltración de agua para nuestro subsuelo.
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -150,20 +150,20 @@ export default function Page() {
                                 title="Educación y concienciación"
 
                                 component="img"
-                                height="210"
-                                image="/img/visual/origami/educacion.jpg"
+                                height="250"
+                                image="/img/visual/origami/asamblea.jpg"
                                 alt="Educación y concienciación"
                                 className="animate__animated animate__fadeIn  animate__delay-1s"
                             />
 
                             <CardContent>
                                 <Typography gutterBottom variant="subtitle2" component="div" padding={2}>
-                                    Educación y concienciación
+                                “Construyendo la estrategia hídrica del segundo piso”. 
                                 </Typography>
 
                                 <Divider />
                                 <Typography variant="body1" color="text.secondary" padding={2} >
-                                    Educa a tu familia y a otros miembros de la comunidad sobre la importancia del cuidado del agua y cómo pueden contribuir individualmente a su conservación. Promueve prácticas sostenibles y hábitos conscientes en el uso del agua en el hogar y en la comunidad.
+                                Encuentro con la Diputada Federal Xóchitl N. Zagal Ramírez, quien propone la nueva ley del agua. Ley General de Aguas se reconoce a los gestores comunitarios del agua.
                                 </Typography>
                             </CardContent>
                         </Card>
