@@ -21,21 +21,29 @@ function TarjetaHistoria() {
         <Card>
             <CardMedia
                 sx={{ height: 400,  }}
-                image="/img/visual/origami/pozo.jpg"
+                image="/img/visual/origami/tory.jpg"
                 title="green iguana"
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Historia
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
-                </Typography>
+                    Como antecedente pricipal del actual Organismo SAPASPA (Servicio de Agua Potable Y Alcantarillado San Pablo Atlazalpan)se tiene 
+                    registro con fecha del 3 de Julio del año de 1996 con Escritura Pública, registro del SAT y permiso de la Secretaría de Relaciones Exteriores.
+                    Titulares:
+                    Ramón Martínez - Presidente 
+                    Mauricio Soriano - Secretario 
+                    Rufino Villegas - Tesorero
+                    Rosa Silva, Jorge Santana, Aldredo Vázquez - Consejo de Vigilancia.
+
+                    Así mismo con fecha 23 de Mayo de 1996 ante la presencia del Lic. Gabriel M. Ezeta, notario Público Número 15 del Estado de México, hizo constar el 
+                    nombre del organizmo Público Descentralizado denominado Servicio de Agua Potable y Alcantarillado San Pablo Atlazalpan.
+            
+            </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                
             </CardActions>
         </Card>
     );
