@@ -18,10 +18,11 @@ import ReloadingComponent from '../layout/ReloadingComponent';
 import { useRouter } from 'next/navigation';
 
 const paypalData = {
-    "client-id": "AXZrVfrjGWMXdsTCV55EUOqLnQY6r_RMyshUrNNlvIV4Mq4JZm8D6jyzLHkq8BezfCFVNhHkT8MaKwmn",
+    "client-id": "AXZrVfrjGWMXdsTCV55EUOqLnQY6r_RMyshUrNNlvIV4Mq4JZm8D6jyzLHkq8BezfCFVNhHkT8MaKwmn", // 'sb' carga el entorno de sandbox
     currency: "MXN",
     locale: "es_MX", // Configura el idioma a español y la región a México
     intent: "capture",
+ 
 };
 
 function StepperPagoComponent({ id_propiedad }) {
